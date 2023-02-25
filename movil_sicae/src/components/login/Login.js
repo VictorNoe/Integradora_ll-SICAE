@@ -37,5 +37,8 @@ const styles = StyleSheet.create({
     linea: {
         borderBottomColorColor: "black",
         borderBottomWidth: 1,
+    },
+    personal: {
+
     }
 });
