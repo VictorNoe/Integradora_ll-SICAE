@@ -25,13 +25,18 @@ public class Group {
     private int degree;
     private String letter;
     private int year;
+    /*@Column
+        private Boolean status;*/
     @ManyToOne
     @JoinColumn(name = "career_id")
     private Career career;
+
     @OneToMany
     private List<Clas> clases;
+
     @ManyToMany
     @JoinTable(name = "student_class", joinColumns = @JoinColumn(name = "student_id"), inverseJoinColumns = @JoinColumn(name = "clas_id"))
     private Set<Clas> classes;
+
 
 }
