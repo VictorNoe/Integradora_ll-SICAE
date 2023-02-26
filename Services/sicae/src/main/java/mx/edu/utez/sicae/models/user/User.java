@@ -27,6 +27,7 @@ public class User {
     @Column(unique = true, nullable = false)
     //0=admin, 1=teacher
     private int role;
+    //1=enabled, 0=disabled
     private int status;
     @OneToMany
     private List<Clas> clases;

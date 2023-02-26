@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
-    @Query (value = "UPDATE users SET status=:status WHERE id=:id",nativeQuery = true)
-    boolean updateById(@Param("status")int status, @Param("id")Long id);
+    @Query (value = "UPDATE users SET status=:status WHERE email=:email",nativeQuery = true)
+    boolean updateSById(@Param("status")int status, @Param("email")String email);
 
-    boolean existsById(Long id);
+    boolean existsByName(Long id);
 }
