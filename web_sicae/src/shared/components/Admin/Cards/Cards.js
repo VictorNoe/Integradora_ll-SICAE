@@ -1,17 +1,20 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
 import {Col ,Row} from "react-bootstrap";
-import LogoUtez from "../../../assets/img/LogoMiniUtez.jpg"
-import * as Icon from 'react-bootstrap-icons'
-
+import { FaChalkboardTeacher} from 'react-icons/fa';
+import { BsFillPersonFill} from 'react-icons/bs';
+import {MdGroups} from 'react-icons/md'
+import {ImBooks} from 'react-icons/im'
+import {GiTeacher} from 'react-icons/gi'
+import {HiOutlineBuildingOffice2} from 'react-icons/hi2'
 
 export const Cards = () =>{
     return(
         <Row xs="3" md="3" style={{margin:"20px 20px"}}>
             <Col style={{marginBlock:"10px"}}>
-                <Card>
+                <Card style={{cursor:"pointer"}}>
                     <Card.Body style={{textAlign:"center"}}>  
-                        <Icon.Person style={{height:"150px",width:"150px"}}></Icon.Person>
+                        <FaChalkboardTeacher style={{height:"150px",width:"150px"}}></FaChalkboardTeacher>
                     </Card.Body>
                     <Card.Header style={{backgroundColor:"#109175", borderRadius:"0px 0px 10px 10px"}}>
                         <Card.Title style={{color:"white", textAlign:"center"}}><h1>Docentes</h1></Card.Title>        
@@ -20,9 +23,9 @@ export const Cards = () =>{
             </Col>
 
             <Col style={{marginBlock:"10px"}}>
-                <Card>
+                <Card style={{cursor:"pointer"}}>
                     <Card.Body style={{textAlign:"center"}}>  
-                        <Icon.PersonBadge style={{height:"150px",width:"150px"}}></Icon.PersonBadge>
+                        <BsFillPersonFill style={{height:"150px",width:"150px"}}></BsFillPersonFill>
                     </Card.Body>
                     <Card.Header style={{backgroundColor:"#109175", borderRadius:"0px 0px 10px 10px"}}>
                         <Card.Title style={{color:"white", textAlign:"center"}}><h1>Alumnos</h1></Card.Title>        
@@ -31,9 +34,9 @@ export const Cards = () =>{
             </Col>
 
             <Col style={{marginBlock:"10px"}}>
-                <Card>
+                <Card style={{cursor:"pointer"}}>
                     <Card.Body style={{textAlign:"center"}}>  
-                        <Icon.CardList style={{height:"150px",width:"150px"}}></Icon.CardList>
+                        <GiTeacher style={{height:"150px",width:"150px"}}></GiTeacher>
                     </Card.Body>
                     <Card.Header style={{backgroundColor:"#109175", borderRadius:"0px 0px 10px 10px"}}>
                         <Card.Title style={{color:"white", textAlign:"center"}}><h1>Clases</h1></Card.Title>        
@@ -42,9 +45,9 @@ export const Cards = () =>{
             </Col>
 
             <Col style={{marginBlock:"10px"}}>
-                <Card>
+                <Card style={{cursor:"pointer"}}>
                     <Card.Body style={{textAlign:"center"}}>  
-                        <Icon.Book style={{height:"150px",width:"150px"}}></Icon.Book>
+                        <ImBooks style={{height:"150px",width:"150px"}}></ImBooks>
                     </Card.Body>
                     <Card.Header style={{backgroundColor:"#109175", borderRadius:"0px 0px 10px 10px"}}>
                         <Card.Title style={{color:"white", textAlign:"center"}}><h1>Materias</h1></Card.Title>        
@@ -53,9 +56,9 @@ export const Cards = () =>{
             </Col>
 
             <Col style={{marginBlock:"10px"}}>
-                <Card>
+                <Card style={{cursor:"pointer"}}>
                     <Card.Body style={{textAlign:"center"}}>  
-                        <Icon.ListTask style={{height:"150px",width:"150px"}}></Icon.ListTask>
+                        <MdGroups style={{height:"150px",width:"150px"}}></MdGroups>
                     </Card.Body>
                     <Card.Header style={{backgroundColor:"#109175", borderRadius:"0px 0px 10px 10px"}}>
                         <Card.Title style={{color:"white", textAlign:"center"}}><h1>Grupos</h1></Card.Title>        
@@ -64,9 +67,9 @@ export const Cards = () =>{
             </Col>
 
             <Col style={{marginBlock:"10px"}}>
-                <Card>
+                <Card style={{cursor:"pointer"}}>
                     <Card.Body style={{textAlign:"center"}}>  
-                        <Icon.PersonVideo2 style={{height:"150px",width:"150px"}}></Icon.PersonVideo2>
+                        <HiOutlineBuildingOffice2 style={{height:"150px",width:"150px"}}></HiOutlineBuildingOffice2>
                     </Card.Body>
                     <Card.Header style={{backgroundColor:"#109175", borderRadius:"0px 0px 10px 10px"}}>
                         <Card.Title style={{color:"white", textAlign:"center"}}><h1>Carreras</h1></Card.Title>        
