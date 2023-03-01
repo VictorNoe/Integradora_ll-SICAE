@@ -1,6 +1,6 @@
 import {Button, Container, Image, Navbar, NavDropdown} from "react-bootstrap";
 import PhotoPerfil from '../../../assets/img/Noe.png'
-import {Link, Route, Routes} from "react-router-dom";
+import {NavLink, Route, Routes} from "react-router-dom";
 import {Cards} from "./Cards";
 import {TableStudens} from "./TableStudens";
 
@@ -28,7 +28,7 @@ export const NavbarDocente = () => {
                                     <h1 style={{fontSize: 10}}>{email}</h1>
                                 </div>
                                 <div className="col-6 d-grid gap-2 mx-auto">
-                                    <Link to="/"><Button className="btn btn-danger" type="submit">Cerrar Sesión</Button></Link>
+                                    <NavLink to="/login"><Button className="btn btn-danger" type="submit">Cerrar Sesión</Button></NavLink>
                                 </div>
                             </NavDropdown.Item>
                         </NavDropdown>
@@ -36,7 +36,7 @@ export const NavbarDocente = () => {
                 </Container>
             </Navbar>
             <Routes>
-                <Route path='class' element={<Cards/>}/>
+                <Route path='Home' element={<Cards/>}/>
                 <Route path='list' element={<TableStudens/>}/>
             </Routes>
         </div>

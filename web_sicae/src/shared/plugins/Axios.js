@@ -1,6 +1,7 @@
 import * as instance from 'axios';
 
-const requestHandler = (request) => {
-    request.headers["Accept"] = "application/json";
-    request.headers["Content-Type"] = "application/json";
+const UrlService = "http://localhost:8080/";
+
+class Axios {
+
 }
