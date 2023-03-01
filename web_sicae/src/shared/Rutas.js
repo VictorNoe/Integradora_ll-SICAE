@@ -12,12 +12,13 @@ export const Rutas = () => {
 
             <Routes>
                 <Route path='/' element={<Login/>}/>
-                
+
                 <Route path='/loginDte/*' element={<NavbarDocente/>}/>
                 <Route path='loginDte' element={<Navigate to="/loginDte/Home"/>}/>
 
                 <Route path='loginAdm/*' element={<Cards/>}/>
                 <Route path='loginAdm' element={<Navigate to="/loginAdm/Home"/>}/>
+                
                 <Route path='*' element={<NotFount/>}/>
             </Routes>
         </BrowserRouter>
