@@ -8,7 +8,6 @@ import {MdGroups} from 'react-icons/md'
 import {ImBooks} from 'react-icons/im'
 import {GiTeacher} from 'react-icons/gi'
 import {HiOutlineBuildingOffice2} from 'react-icons/hi2'
-import { Form_Class } from "../Forms/Form_Class";
 
 export const Cards = () =>{
     return(    
