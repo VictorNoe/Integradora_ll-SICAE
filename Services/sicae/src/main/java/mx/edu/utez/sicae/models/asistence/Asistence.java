@@ -21,15 +21,11 @@ public class Asistence {
     private Long id;
     @Column(nullable = false)
     private String date;
-
-    /*@Column(nullable = false)
-    private Boolean status;*/
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
     @ManyToMany
     @JoinTable(name = "asistence_qr", joinColumns = @JoinColumn(name = "qr_id"),inverseJoinColumns = @JoinColumn(name = "asistence_id"))
     private Set<Asistence> asistences;
-
-
 }
+

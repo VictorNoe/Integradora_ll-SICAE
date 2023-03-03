@@ -21,12 +21,12 @@ public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private int degree;
     private String letter;
     private int year;
     /*@Column
-        private Boolean status;*/
+      private Boolean status;*/
     @ManyToOne
     @JoinColumn(name = "career_id")
     private Career career;

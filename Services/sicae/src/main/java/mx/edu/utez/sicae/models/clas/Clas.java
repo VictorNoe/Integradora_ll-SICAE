@@ -1,3 +1,4 @@
+
 package mx.edu.utez.sicae.models.clas;
 
 import jakarta.persistence.*;
@@ -34,3 +35,4 @@ public class Clas {
     private Subject subject;
 
 }
+

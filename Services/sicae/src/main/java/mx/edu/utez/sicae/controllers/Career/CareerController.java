@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/career")
 public class CareerController {
@@ -35,3 +36,4 @@ public class CareerController {
         return new ResponseEntity<>(this.careerService.update(careerDto.castToCareer()),HttpStatus.CREATED);
     }
 }
+
