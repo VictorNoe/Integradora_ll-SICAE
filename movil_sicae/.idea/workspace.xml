@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16698669-3cdf-4679-ad16-08d6ebd0ecd4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/home-pages/PersonalData.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/home-pages/QRscanner.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/logout/ButtomLogout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/navigation/DrawnNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigation/AppNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/AppNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/HomePages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomePages.js" afterDir="false" />
-    </list>
+    <list default="true" id="16698669-3cdf-4679-ad16-08d6ebd0ecd4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,6 +71,7 @@
       <workItem from="1677259047302" duration="44000" />
       <workItem from="1677267676743" duration="87000" />
       <workItem from="1677290038093" duration="1268000" />
+      <workItem from="1678213792504" duration="53000" />
     </task>
     <servers />
   </component>
