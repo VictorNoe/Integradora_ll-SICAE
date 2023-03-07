@@ -27,5 +27,7 @@ public class Asistence {
     @ManyToMany
     @JoinTable(name = "asistence_qr", joinColumns = @JoinColumn(name = "qr_id"),inverseJoinColumns = @JoinColumn(name = "asistence_id"))
     private Set<Asistence> asistences;
+
+
 }
 

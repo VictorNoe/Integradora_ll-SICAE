@@ -39,7 +39,7 @@ public class AsistenceService {
         );
     }
 
-   /* @Transactional(rollbackFor = {SQLException.class})
+/*   @Transactional(rollbackFor = {SQLException.class})
     public CustomResponse<Boolean> changeStatus(Asistence asistence){
         if(this.repository.existsById(asistence.getId()))
             return new CustomResponse<>(null,true,400,"La subcategoria no existe");

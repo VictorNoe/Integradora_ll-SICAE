@@ -1,5 +1,6 @@
 package mx.edu.utez.sicae.services;
 
+import mx.edu.utez.sicae.models.career.Career;
 import mx.edu.utez.sicae.models.student.Student;
 import mx.edu.utez.sicae.models.student.StudentRepository;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
@@ -27,5 +28,12 @@ public class StudentService {
         if(this.repository.existsById(student.getId()))
             return new CustomResponse<>(null,true,400,"Error el estudiante ya existe");
         return new CustomResponse<>(this.repository.saveAndFlush(student),false,200,"Estudiante creado con éxito");
+    }
+    @Transactional(rollbackFor =SQLException.class )
+    public CustomResponse<Student> update(Student  student){
+        if(!this.repository.existsById(student.getId()))
+            return new CustomResponse<>(null,true,400,"La carrera no existe");
+
+        return new CustomResponse<>(this.repository.saveAndFlush(student),false,200,"Carrera actualizada");
     }
 }
