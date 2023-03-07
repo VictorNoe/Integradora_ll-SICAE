@@ -1,7 +1,13 @@
-import * as instance from 'axios';
+import axios from "axios";
 
-const UrlService = "http://localhost:8080/";
+const baseURL = 'http://localhost:8080/api/career/';
 
-class Axios {
+class Axios{
+
+    getAllCareer(){
+        return axios.get(`${baseURL}`)
+    }
 
 }
+
+export default new Axios();

@@ -4,28 +4,33 @@ import {Link, Outlet} from "react-router-dom";
 export const Cards = () => {
     return (
         <div>
-            <Link to='/login'>
+            <Link to='/list'>
                 <div className="container-lg">
                     <div className="row">
                         <div className="col-4 mb-5">
                             <Card className="text-center" style={{borderRadius: 20}}>
                                 <Card.Body style={{height: '10rem'}}>
                                     <div className="row">
-                                        <div className="col-11"></div>
-                                        <div className="col-1 d-grid gap-2">
-                                            <div
-                                                style={{
+                                        <div className="col-10"></div>
+                                        <div className="col-2 d-grid gap-2 al">
+                                            <center>
+                                                <div style={{
                                                     borderColor: "black",
                                                     height: "20px",
                                                     width: "20px",
                                                     borderRadius: 100,
-                                                    backgroundColor: "green",
-                                                    alignItems:"center"
+                                                    backgroundColor: "green"
                                                 }}></div>
+                                            </center>
                                         </div>
                                     </div>
                                 </Card.Body>
-                                <Card.Footer style={{backgroundColor: "#109175", color: "#fff", borderBottomLeftRadius: 20, borderBottomRightRadius: 20}}>
+                                <Card.Footer style={{
+                                    backgroundColor: "#109175",
+                                    color: "#fff",
+                                    borderBottomLeftRadius: 20,
+                                    borderBottomRightRadius: 20
+                                }}>
                                     <div className="row">
                                         <div className="col-12 text-">
                                             <p className="text-start">EOE I</p>

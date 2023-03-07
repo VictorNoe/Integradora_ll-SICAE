@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Button, Form , Modal , Col ,Row} from "react-bootstrap";
+import {Button, Form , Modal } from "react-bootstrap";
 
 
 export const Form_Subject = () =>{

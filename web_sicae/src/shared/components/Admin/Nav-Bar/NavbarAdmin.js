@@ -5,7 +5,6 @@ import { FaHome } from 'react-icons/fa';
 import { FaPowerOff } from 'react-icons/fa';
 import {Routes,Route,Link} from 'react-router-dom'
 import { Cards } from '../Cards/Cards';
-import {Form_Class} from '../Forms/Form_Class'
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -50,7 +49,6 @@ export const NavbarAdmin =()=> {
           </Navbar>
           <Routes>
               <Route path='Home' element={< Cards />}/>
-              <Route path='Docentes' element={<Form_Class/>}/>
           </Routes>
       </div>
   )
