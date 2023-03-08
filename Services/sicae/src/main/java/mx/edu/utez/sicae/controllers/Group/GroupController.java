@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/group")
+@CrossOrigin(origins =  {"*"})
 public class GroupController {
 
     @Autowired
@@ -43,3 +44,4 @@ public class GroupController {
     }*/
 
 }
+

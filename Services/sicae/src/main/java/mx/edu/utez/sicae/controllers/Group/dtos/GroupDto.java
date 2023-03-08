@@ -1,3 +1,4 @@
+
 package mx.edu.utez.sicae.controllers.Group.dtos;
 
 import lombok.AllArgsConstructor;
@@ -11,10 +12,12 @@ import mx.edu.utez.sicae.models.group.Group;
 @Setter
 @Getter
 public class GroupDto {
+
     private Long id;
     private int degree;
     private String letter;
     private int year;
 
-    public Group castToGroup(){return new Group(getId(),getDegree(),getLetter(),getYear(),null,null,null);}
+    public Group castToGroup(){return new Group(getId(),getDegree(),getLetter(),getYear(),null);}
 }
+

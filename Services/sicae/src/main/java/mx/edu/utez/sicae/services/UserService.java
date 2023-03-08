@@ -37,7 +37,7 @@ public class UserService {
     public  CustomResponse<Boolean> changeStatus(User user){
         if (!this.repository.existsById(user.getEmail()))
             return new CustomResponse<>(null,true,400,"Error Usuario no encontrado");
-        return new CustomResponse<>(this.repository.updateSById(user.getStatus(), user.getEmail()),false,200,"Estado actualizado!");
+        return new CustomResponse<>(this.repository.updateByEmail(user.getStatus(), user.getEmail()),false,200,"Estado actualizado!");
     }
 
 }

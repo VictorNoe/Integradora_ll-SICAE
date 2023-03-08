@@ -1,3 +1,4 @@
+
 package mx.edu.utez.sicae.models.clas;
 
 import jakarta.persistence.*;
@@ -8,8 +9,6 @@ import lombok.Setter;
 import mx.edu.utez.sicae.models.group.Group;
 import mx.edu.utez.sicae.models.subject.Subject;
 import mx.edu.utez.sicae.models.user.User;
-
-import java.util.Set;
 
 @Entity
 @Table(name = "clases")

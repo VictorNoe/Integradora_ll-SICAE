@@ -1,3 +1,4 @@
+
 package mx.edu.utez.sicae.models.utils;
 
 import lombok.AllArgsConstructor;
@@ -15,3 +16,4 @@ public class CustomResponse<T>{
     int statusCode;
     String message;
 }
+

@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/career")
+@CrossOrigin(origins = {"*"})
 public class CareerController {
     @Autowired
     CareerService careerService;
@@ -35,3 +36,4 @@ public class CareerController {
         return new ResponseEntity<>(this.careerService.update(careerDto.castToCareer()),HttpStatus.CREATED);
     }
 }
+

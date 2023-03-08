@@ -22,3 +22,4 @@ public class Career {
     //@OneToMany(mappedBy="group")
     //private List<Group> groups;
 }
+

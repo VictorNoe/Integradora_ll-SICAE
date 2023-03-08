@@ -1,3 +1,4 @@
+
 package mx.edu.utez.sicae.models.qr;
 
 import jakarta.persistence.*;
@@ -20,9 +21,10 @@ public class Qr {
     @Column(nullable = false)
     private String date;
     @Column(nullable = false, columnDefinition = "boolean default true")
-    private boolean status;
+    private Boolean status;
     @ManyToOne
     @JoinColumn(name = "class_id")
     private Clas clas;
 
 }
+

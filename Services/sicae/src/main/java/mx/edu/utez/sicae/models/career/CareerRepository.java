@@ -11,3 +11,4 @@ public interface CareerRepository extends JpaRepository <Career, Long>{
 
     boolean existsByName(String name);
 }
+
