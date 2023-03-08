@@ -14,7 +14,7 @@ export const NavbarDocente = () => {
         <div>
             <Navbar className="mb-5" style={{background: "#109175",color: "white"}}>
                 <Container>
-                    <Navbar.Brand href="/Login" style={{color:"#fff"}}> SICAE</Navbar.Brand>
+                    <Navbar.Brand href="/loginDte" style={{color:"#fff"}}> SICAE</Navbar.Brand>
                     <Navbar.Toggle/>
                     <Navbar.Collapse className="justify-content-end">
                         <NavDropdown title={name} id="basic-nav-dropdown">
@@ -39,7 +39,7 @@ export const NavbarDocente = () => {
             </Navbar>
             <Routes>
                 <Route index element={<Cards/>}/>
-                <Route path='list' element={<TableStudens/>}/>
+                <Route path=":id" element={<TableStudens/>}/>
             </Routes>
         </div>
     )

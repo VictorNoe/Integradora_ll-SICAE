@@ -1,8 +1,9 @@
 import axios from "axios";
 
-export const client = axios.create({
-    baseURL: "https://localhost:8080/api"
+export const URLSERVIS = axios.create({
+    baseURL : "https://jsonplaceholder.typicode.com/users"
 });
+
 
 
 

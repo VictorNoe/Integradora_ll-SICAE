@@ -1,41 +1,15 @@
-import {Outlet} from "react-router-dom";
-import {useEffect, useState} from "react";
-import axios from "axios";
-import {client} from "../../plugins/Axios";
+import {Outlet, useParams} from "react-router-dom";
 
 export const TableStudens = () => {
 
-    const [career, setCareer] = useState(null);
-
-    useEffect( () => {
-        const getCareer = async () =>{
-            const response = await client.get("/career/");
-            setCareer(response.data);
-        }
-        getCareer();
-    },[]);
-
-    if (!career) return <h1>error</h1>;
-
+    const {id, ...rest} = useParams();
+    console.log(id, rest);
     return(
-        <div>
-            <table className="table">
-                <thead>
-                    <th scope="col">Id</th>
-                    <th scope="col">Acronimo</th>
-                    <th scope="col">Name</th>
-                </thead>
-                <tbody>
-                {
-                            <tr key = {career.id}>
-                                <td>{career.id}</td>
-                                <td>{career.acronim}</td>
-                                <td>{career.name}</td>
-                            </tr>
-                }
-                </tbody>
-            </table>
+        <>
+            <div className="TableStudens">
+                <h1>Mira pa</h1>
+            </div>
             <Outlet/>
-        </div>
+        </>
     )
 }

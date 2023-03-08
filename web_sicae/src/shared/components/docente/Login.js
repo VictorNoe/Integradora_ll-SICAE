@@ -34,7 +34,7 @@ export const Login = () => {
                     <Image
                         src={LogoUtez}
                         roundedCircle
-                        class="rounded mx-auto d-block"
+                        className="rounded mx-auto d-block"
                     />
                 </div>
                 <div className="row rounded mx-auto d-block ">
