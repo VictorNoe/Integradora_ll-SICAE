@@ -1,74 +1,52 @@
-import React, {useState} from "react";
-import {Button, Form, Image} from "react-bootstrap";
+import React, {useEffect, useState} from "react";
 import LogoUtez from "../../../assets/img/LogoMiniUtez.jpg"
 import {useNavigate} from "react-router-dom";
+import {URLSERVIS} from "../../plugins/Axios";
 
 export const Login = () => {
-    const navigate = useNavigate();
-    //validacion form
-    const [validated, setValidated] = useState(false);
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
 
-        setValidated(true);
-    };
+    const navigate = useNavigate();
+
+    const [user, setUser] = useState([]);
+
+    useEffect(() => {
+        const getLogin = async () => {
+            const res = await URLSERVIS("users/");
+            setUser(res.data.data)
+        }
+        getLogin();
+    },[]);
+
+    console.log(user)
+
+    if(!user.length) return (
+        <h1>Loading...</h1>
+    )
 
     return (
-        <div className="container " style={{
-            alignItems: "center",
-            justifyContent: "center",
-            display: "flex",
-            minHeight: 100,
-        }}>
-            <div className="row abs-vemter border position-absolute top-50 start-50 translate-middle rounded-4" style={{backgroundColor:"#109175",width: "35rem"}}>
-                <div className="row mb-3"></div>
-                <div className="row rounded mx-auto d-block" style={{
-                    height:200,
-                    width:200,
-                    borderRadius:100,
-                }}>
-                    <Image
-                        src={LogoUtez}
-                        roundedCircle
-                        className="rounded mx-auto d-block"
-                    />
-                </div>
-                <div className="row rounded mx-auto d-block ">
-                    <div className="col-12">
-                        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                            <Form.Group className="mb-3" controlId="validationCustom01">
-                                <Form.Label required type="text">Matricula</Form.Label>
-                                <Form.Control type="text" placeholder="Matricula" required/>
-                            </Form.Group>
-
-                            <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Label>Contraseña</Form.Label>
-                                <Form.Control type="password" placeholder="Contraseña" required/>
-                            </Form.Group>
-
-                                <div className="col-12 text-center d-grid gap-2 mb-4">
-                                    <Button
-                                        variant="primary"
-                                        type="submit"
-                                        size="lg"
-                                        style={{
-                                            background: "#1E3D74",
-                                            borderColor: "#1E3D74"
-                                        }}
-                                        onClick={()=>navigate("/loginDte")}
-                                    >
-                                        Iniciar Sesión
-                                    </Button>
-                                </div>
-
-                        </Form>
-                    </div>
-                </div>
-            </div>
-        </div>
+       <div className="container">
+           <div className="row border border-2 position-absolute top-50 start-50 translate-middle" style={{height:"75%", width:"60%",borderRadius:3,backgroundColor:""}}>
+               <div className="col-6">
+                   <div className="col-8">
+                       <form>
+                           <div className="mb-3">
+                               <label htmlFor="exampleInputEmail1" className="form-label">Correo electronico</label>
+                               <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                           </div>
+                           <div className="mb-3">
+                               <label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
+                               <input type="password" className="form-control" id="exampleInputPassword1"/>
+                           </div>
+                           <div className="d-grid gap-2 col-6 mx-auto">
+                               <button type="submit" className="btn" style={{color:"white", backgroundColor:"#109175FF", borderColor:"#109175FF"}} onClick={() => navigate()}>Submit</button>
+                           </div>
+                       </form>
+                   </div>
+               </div>
+               <div className="col-6" style={{backgroundColor:"#109175FF"}}>
+                   <img src={LogoUtez} className="mt-5" alt="LogoUtez" style={{width:200, height:200, borderRadius:"100%"}}/>
+               </div>
+           </div>
+       </div>
     )
 }
