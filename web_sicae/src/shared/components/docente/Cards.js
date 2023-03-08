@@ -4,7 +4,7 @@ import {Link, Outlet} from "react-router-dom";
 export const Cards = () => {
     return (
         <div>
-            <Link to='/list'>
+            <Link to='list'>
                 <div className="container-lg">
                     <div className="row">
                         <div className="col-4 mb-5">

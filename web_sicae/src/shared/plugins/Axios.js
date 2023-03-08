@@ -1,13 +1,8 @@
 import axios from "axios";
 
-const baseURL = 'http://localhost:8080/api/career/';
+export const client = axios.create({
+    baseURL: "https://localhost:8080/api"
+});
 
-class Axios{
 
-    getAllCareer(){
-        return axios.get(`${baseURL}`)
-    }
 
-}
-
-export default new Axios();

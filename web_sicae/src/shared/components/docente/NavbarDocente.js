@@ -38,8 +38,8 @@ export const NavbarDocente = () => {
                 </Container>
             </Navbar>
             <Routes>
-                <Route path='Home' element={<Cards/>}/>
-                <Route path='Home/list' element={<TableStudens/>}/>
+                <Route index element={<Cards/>}/>
+                <Route path='list' element={<TableStudens/>}/>
             </Routes>
         </div>
     )

@@ -1,23 +1,22 @@
 import {Outlet} from "react-router-dom";
-import Axios from "../../plugins/Axios";
 import {useEffect, useState} from "react";
+import axios from "axios";
+import {client} from "../../plugins/Axios";
 
 export const TableStudens = () => {
 
-    const [career, setCareer] = useState([])
+    const [career, setCareer] = useState(null);
 
-    useEffect(() => {
-        getAllCareer();
-    }, [])
+    useEffect( () => {
+        const getCareer = async () =>{
+            const response = await client.get("/career/");
+            setCareer(response.data);
+        }
+        getCareer();
+    },[]);
 
-    const getAllCareer = () => {
-        Axios.getAllCareer().then((response) => {
-            setCareer(response.data)
-            console.log(response.data);
-        }).catch(error =>{
-            console.log(error);
-        })
-    }
+    if (!career) return <h1>error</h1>;
+
     return(
         <div>
             <table className="table">
@@ -28,15 +27,11 @@ export const TableStudens = () => {
                 </thead>
                 <tbody>
                 {
-                    career.map(
-                        careers => (
-                            <tr key = {careers.id}>
-                                <td>{careers.id}</td>
-                                <td>{careers.acronim}</td>
-                                <td>{careers.name}</td>
+                            <tr key = {career.id}>
+                                <td>{career.id}</td>
+                                <td>{career.acronim}</td>
+                                <td>{career.name}</td>
                             </tr>
-                            )
-                    )
                 }
                 </tbody>
             </table>
