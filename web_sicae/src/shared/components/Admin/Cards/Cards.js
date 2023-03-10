@@ -12,7 +12,7 @@ import {HiOutlineBuildingOffice2} from 'react-icons/hi2'
 export const Cards = () =>{
     return(    
             <Row xs="3" md="3" style={{margin:"20px 20px"}}>
-                    <Link to="/Docentes"  style={{textDecoration:"none",color:"black"}}>
+                    <Link to="/loginAdm/Docentes"  style={{textDecoration:"none",color:"black"}}>
                         <Col style={{marginBlock:"10px"}}>
                             <Card style={{cursor:"pointer"}}>
                                 <Card.Body style={{textAlign:"center"}}>  
@@ -25,7 +25,7 @@ export const Cards = () =>{
                         </Col>
                     </Link>
 
-                    <Link to="/Alumnos" style={{textDecoration:"none",color:"black"}}>
+                    <Link to="/loginAdm/Alumnos" style={{textDecoration:"none",color:"black"}}>
                         <Col style={{marginBlock:"10px"}}>
                             <Card style={{cursor:"pointer"}}>
                                 <Card.Body style={{textAlign:"center"}}>  
@@ -38,7 +38,7 @@ export const Cards = () =>{
                         </Col>
                     </Link>
 
-                    <Link to="/Clases" style={{textDecoration:"none",color:"black"}}>
+                    <Link to="/loginAdm/Clases" style={{textDecoration:"none",color:"black"}}>
                         <Col style={{marginBlock:"10px"}}>
                             <Card style={{cursor:"pointer"}}>
                                 <Card.Body style={{textAlign:"center"}}>  
@@ -51,7 +51,7 @@ export const Cards = () =>{
                         </Col>                        
                     </Link>
 
-                    <Link to="/Materias" style={{textDecoration:"none",color:"black"}}>
+                    <Link to="/loginAdm/Materias" style={{textDecoration:"none",color:"black"}}>
                         <Col style={{marginBlock:"10px"}}>
                             <Card style={{cursor:"pointer"}}>
                                 <Card.Body style={{textAlign:"center"}}>  
@@ -65,7 +65,7 @@ export const Cards = () =>{
                     </Link>
 
                     
-                    <Link to="/Grupos" style={{textDecoration:"none",color:"black"}}>
+                    <Link to="/loginAdm/Grupos" style={{textDecoration:"none",color:"black"}}>
                         <Col style={{marginBlock:"10px"}}>
                             <Card style={{cursor:"pointer"}}>
                                 <Card.Body style={{textAlign:"center"}}>  
@@ -78,7 +78,7 @@ export const Cards = () =>{
                         </Col>    
                     </Link>
                     
-                    <Link to="/Carreras" style={{textDecoration:"none",color:"black"}}>
+                    <Link to="/loginAdm/Carreras" style={{textDecoration:"none",color:"black"}}>
                         <Col style={{marginBlock:"10px"}}>
                             <Card style={{cursor:"pointer"}}>
                                 <Card.Body style={{textAlign:"center"}}>  

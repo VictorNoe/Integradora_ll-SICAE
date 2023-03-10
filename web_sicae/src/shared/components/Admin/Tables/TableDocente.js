@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Table, Button } from 'react-bootstrap';
 import { FaRegEdit } from 'react-icons/fa';
 
-export default function TablesAdmin() {
+export const TablesDocentes=()=> {
     const [isEnabled, setIsEnabled] = useState(false);
     
     const handleClick = () => {

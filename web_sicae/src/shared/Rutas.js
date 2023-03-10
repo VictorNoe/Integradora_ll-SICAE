@@ -8,12 +8,11 @@ export const Rutas = () => {
 
     return(
         <BrowserRouter>
-            <Navigate />
 
             <Routes>
                 <Route path='/' element={<Login/>}/>
 
-                <Route path='/loginDte/*' element={<NavbarDocente/>}/>
+                <Route path='loginDte/*' element={<NavbarDocente/>}/>
                 <Route path='loginDte' element={<Navigate to="/loginDte/Home"/>}/>
 
                 <Route path='loginAdm/*' element={<NavbarAdmin/>}/>
