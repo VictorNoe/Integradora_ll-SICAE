@@ -34,6 +34,10 @@ public class UserService {
         return new CustomResponse<>(this.repository.saveAndFlush(user),false,200,"Usuario Actualizado");
     }
     @Transactional(rollbackFor = {SQLException.class})
+    public void updateClases(Long clas, String email){
+        this.repository.insertUserClas(email,clas);
+    }
+    @Transactional(rollbackFor = {SQLException.class})
     public  CustomResponse<Boolean> changeStatus(User user){
         if (!this.repository.existsById(user.getEmail()))
             return new CustomResponse<>(null,true,400,"Error Usuario no encontrado");

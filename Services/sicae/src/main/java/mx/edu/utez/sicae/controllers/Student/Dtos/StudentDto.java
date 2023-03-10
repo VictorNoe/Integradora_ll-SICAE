@@ -25,13 +25,14 @@ public class StudentDto {
     private Group group;
 
     public Student castToStudent(){
+        System.out.println(getId());
         return new Student(
                 getId(),
                 getName(),
                 getLastname(),
                 getPassword(),
                 getGroup(),
-                getAsistences()
+                null
         );
     }
 }

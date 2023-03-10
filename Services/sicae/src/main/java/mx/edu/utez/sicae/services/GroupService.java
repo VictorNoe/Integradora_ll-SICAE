@@ -4,6 +4,7 @@ package mx.edu.utez.sicae.services;
 import mx.edu.utez.sicae.models.group.Group;
 import mx.edu.utez.sicae.models.group.GroupRepository;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @Service
 @Transactional
 public class GroupService {
+    @Autowired
     private GroupRepository repository;
 
     @Transactional(readOnly = true)
@@ -26,10 +28,7 @@ public class GroupService {
     }
     @Transactional(rollbackFor = {SQLException.class})
     public CustomResponse<Group>insert(Group group){
-        if(this.repository.existsById(group.getId())){
-            return new CustomResponse<>(null,true,400,"Grupo ya registrado");
-        }
-        return  new CustomResponse<>(this.repository.saveAndFlush(group),false,200,"Grupo registrado coreectamente");
+        return  new CustomResponse<>(this.repository.saveAndFlush(group),false,200,"Grupo registrado correctamente");
     }
 
     @Transactional(rollbackFor = {SQLException.class})

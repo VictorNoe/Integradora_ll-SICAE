@@ -21,7 +21,7 @@ public class Clas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, columnDefinition = "boolean default true")
-    private boolean status;
+    private int status;
     @ManyToOne
     @JoinColumn(name = "group_id")
     private Group group;

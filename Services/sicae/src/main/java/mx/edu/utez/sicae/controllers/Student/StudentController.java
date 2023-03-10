@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/students")
+@RequestMapping("/api/student")
 @CrossOrigin(origins =  {"*"})
 public class StudentController {
     @Autowired
@@ -27,7 +27,7 @@ public class StudentController {
         return  new ResponseEntity<>(this.studentService.getOne(id),HttpStatus.OK);
     }
     @PostMapping("/")
-    public ResponseEntity<CustomResponse<Student>>insert(StudentDto studentDto){
+    public ResponseEntity<CustomResponse<Student>>insert(@Valid @RequestBody StudentDto studentDto){
         return new ResponseEntity<>(this.studentService.insert(studentDto.castToStudent()),HttpStatus.CREATED);
     }
     @PutMapping("/")

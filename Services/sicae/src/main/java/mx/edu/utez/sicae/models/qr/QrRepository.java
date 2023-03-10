@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface QrRepository extends JpaRepository<Qr,Long> {
-    @Query(value = "UPDDATE qr SET status=:status WHERE id=:id ",nativeQuery = true)
+    @Query(value = "UPDDATE qrs SET status=:status WHERE id=:id ",nativeQuery = true)
     boolean updateById(@Param("status") Boolean status, @Param("id")Long id);
 }

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SubjectRepository extends JpaRepository<Subject,Long> {
-
     boolean findById(long id);
+    boolean existsByName(String name);
 
 }
