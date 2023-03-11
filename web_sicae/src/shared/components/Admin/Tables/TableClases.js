@@ -3,6 +3,20 @@ import { Table, Button } from 'react-bootstrap';
 import { FaRegEdit } from 'react-icons/fa';
 
 export const TableClases = () => {
+    //Consumo Api
+    const URL = `http://localhost:8080/api/career/`
+    const [Carrera,setCarrera] = useState([])
+
+    useEffect(()=>{
+        fetch(URL).then((response)=>{return response.json()})
+        .then((data)=> {
+            console.log(data.data);
+            setCarrera(data.data)
+        })
+        .catch((error)=>{
+            console.log(error.message)
+        })
+    }, [])
     return (
         <>
             <div>

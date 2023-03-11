@@ -1,8 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Table, Button } from 'react-bootstrap';
 import { FaRegEdit } from 'react-icons/fa';
 
 export const TablesDocentes=()=> {
+
+    //Consumo Api
+    const URL = `http://localhost:8080/api/users/`
+    const [Docente,setDocente] = useState([])
+
+    useEffect(()=>{
+        fetch(URL).then((response)=>{return response.json()})
+        .then((data)=> {
+            console.log(data.data);
+            setDocente(data.data)
+        })
+        .catch((error)=>{
+            console.log(error.message)
+        })
+    }, [])
+
+    //Modificaciones
     const [isEnabled, setIsEnabled] = useState(false);
     
     const handleClick = () => {
@@ -24,7 +41,6 @@ export const TablesDocentes=()=> {
         <Table striped bordered hover>
       <thead style={styles.TableThead}>
         <tr style={styles.TableCabecera}>
-          <th>#</th>
           <th>Nombres</th>
           <th>Apellidos</th>
           <th>Correo</th>
@@ -33,19 +49,22 @@ export const TablesDocentes=()=> {
         </tr>
       </thead>
       <tbody style={styles.Text}>
-        <tr>
-          <td>1</td>
-          <td>Cesar Arturo</td>
-          <td>Marales Galván</td>
-          <td>CesarMorales@utez.edu.mx</td>
-          <td>Cesar Morales</td>
-          <td>
-            <FaRegEdit style={styles.Icon}/>
-            <Button style={style.Button} onClick={handleClick}>
-                {isEnabled ? 'Enabled' : 'Disabled'}
-                </Button>
-            </td>
-        </tr>
+        {Docente.map((post)=>{
+          return(
+            <tr>
+              <td>{post.name}</td>
+              <td>{post.lastname}</td>
+              <td>{post.email}</td>
+              <td>{post.name}</td>
+              <td>
+                <FaRegEdit style={styles.Icon}/>
+                <Button style={style.Button} onClick={handleClick}>
+                    {isEnabled ? 'Enabled' : 'Disabled'}
+                    </Button>
+              </td>
+            </tr>
+          )
+        })}
       </tbody>
     </Table>
     </>

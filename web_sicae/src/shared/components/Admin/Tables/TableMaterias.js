@@ -1,8 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Table, Button } from 'react-bootstrap';
 import { FaRegEdit } from 'react-icons/fa';
 
 export const TablesMaterias = () => {
+    //Consumo Api
+    const URL = `http://localhost:8080/api/subject/`
+    const [Materias,setMaterias] = useState([])
+
+    useEffect(()=>{
+        fetch(URL).then((response)=>{return response.json()})
+        .then((data)=> {
+            console.log(data.data);
+            setMaterias(data.data)
+        })
+        .catch((error)=>{
+            console.log(error.message)
+        })
+    }, [])
+
+    //Modificaciones
     const [isEnabled, setIsEnabled] = useState(false);
 
     const handleClick = () => {
