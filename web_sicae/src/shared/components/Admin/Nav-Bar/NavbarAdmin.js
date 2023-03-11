@@ -48,7 +48,7 @@ export const NavbarAdmin =()=> {
               </Navbar.Collapse>
           </Navbar>
           <Routes>
-              <Route path='Home' element={< Cards />}/>
+              <Route index element={< Cards />}/>
           </Routes>
       </div>
   )

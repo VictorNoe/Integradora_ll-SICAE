@@ -7,7 +7,7 @@ import {NavbarAdmin} from "./shared/components/Admin/Nav-Bar/NavbarAdmin";
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Login/>}/>
+      <Route path="/login" element={<Login/>}/>
       <Route path="/loginDte" element={<NavbarDocente/>}/>
       <Route path="/loginAdm" element={<NavbarAdmin/>}/>
     </Routes>

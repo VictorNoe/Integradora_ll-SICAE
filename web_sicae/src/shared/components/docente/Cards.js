@@ -2,27 +2,28 @@ import {Card} from "react-bootstrap";
 import {Outlet} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {URLSERVIS} from "../../plugins/Axios";
+import {Loading} from "../Loading";
 export const Cards = () => {
 
-    const [salones, setSalones] = useState([]);
+    const [clase, setClase] = useState([]);
 
     useEffect(() => {
         const getSalon = async () => {
             const res = await URLSERVIS("career/");
-            setSalones(res.data.data);
+            setClase(res.data.data);
         }
         getSalon();
     },[]);
 
-    console.log(salones)
-    if(!salones.length) return <h1>Loading....</h1>;
+    console.log(clase)
+    if(!clase.length) return <Loading/>;
 
     return (
         <div>
             <div className="container-lg">
                 <div className="row">
                     {
-                        salones.map((clases) => (
+                        clase.map((clases) => (
                             <div className="col-4 mb-5" key={clases.id}>
                                 <Card className="text-center" style={{borderRadius: 20}}>
                                     <Card.Body style={{height: '10rem'}}>
