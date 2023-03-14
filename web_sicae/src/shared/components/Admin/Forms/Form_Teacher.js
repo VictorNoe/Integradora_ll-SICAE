@@ -18,7 +18,7 @@ export const Form_Teacher = () =>{
 
     return(
         <div className="modal show" style={{ display: 'block', position: 'initial' }}>
-      <Modal.Dialog>
+        {/* <Modal.Dialog></Modal.Dialog> tuve que quitar el modal.dialog porque me causaba problemas asi que comprende mi dolor :)  */}
         <Modal.Header closeButton>
           <Modal.Title>Nuevo Registro Docente</Modal.Title>
         </Modal.Header>
@@ -61,6 +61,5 @@ export const Form_Teacher = () =>{
                 </Modal.Footer>
             </Form>
         </Modal.Body>
-      </Modal.Dialog>
     </div>
 )}

@@ -27,7 +27,7 @@ export const TablesMaterias = () => {
 
     const style = {
         Button: {
-            backgroundColor: isEnabled ? 'green' : 'red',
+            backgroundColor: isEnabled ? '#109175' : '#616A6B',
             color: 'white',
             borderRadius: '5px',
             cursor: 'pointer',
@@ -53,7 +53,7 @@ export const TablesMaterias = () => {
                         <td>
                             <FaRegEdit style={styles.Icon} />
                             <Button style={style.Button} onClick={handleClick}>
-                                {isEnabled ? 'Enabled' : 'Disabled'}
+                                {isEnabled ? 'Habilitar' : 'Deshabilitar'}
                             </Button>
                         </td>
                     </tr>

@@ -4,7 +4,7 @@ import { FaRegEdit } from 'react-icons/fa';
 
 export const TablesAlumno = () => {
     //Consumo APi
-    const URL = `http://localhost:8080/api/students/`
+    const URL = `http://localhost:8080/api/student/`
     const [Alumno,setAlumno] = useState([])
 
     useEffect(()=>{
@@ -27,7 +27,7 @@ export const TablesAlumno = () => {
 
     const style = {
         Button: {
-            backgroundColor: isEnabled ? 'green' : 'red',
+            backgroundColor: isEnabled ? '#109175' : '#616A6B',
             color: 'white',
             borderRadius: '5px',
             cursor: 'pointer',
@@ -59,7 +59,7 @@ export const TablesAlumno = () => {
                         <td>
                             <FaRegEdit style={styles.Icon} />
                             <Button style={style.Button} onClick={handleClick}>
-                                {isEnabled ? 'Enabled' : 'Disabled'}
+                                {isEnabled ? 'Habilitar' : 'Deshabilitar'}
                             </Button>
                         </td>
                         </tr>
