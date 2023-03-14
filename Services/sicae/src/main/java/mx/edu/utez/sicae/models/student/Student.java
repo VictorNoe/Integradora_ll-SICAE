@@ -28,7 +28,9 @@ public class Student {
     @ManyToOne
     @JoinColumn(name = "group_id")
     private Group group;
+
     @OneToMany
     private List<Asistence> asistences;
 
 }
+

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import mx.edu.utez.sicae.models.asistence.Asistence;
 import mx.edu.utez.sicae.models.group.Group;
+import mx.edu.utez.sicae.models.student.Student;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
@@ -22,4 +23,16 @@ public class StudentDto {
     private String name;
     private String lastname;
     private Group group;
+
+    public Student castToStudent(){
+        System.out.println(getId());
+        return new Student(
+                getId(),
+                getName(),
+                getLastname(),
+                getPassword(),
+                getGroup(),
+                null
+        );
+    }
 }

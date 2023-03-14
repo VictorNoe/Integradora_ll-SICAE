@@ -1,6 +1,5 @@
 package mx.edu.utez.sicae.services;
 
-import mx.edu.utez.sicae.models.group.Group;
 import mx.edu.utez.sicae.models.qr.Qr;
 import mx.edu.utez.sicae.models.qr.QrRepository;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
@@ -43,10 +42,10 @@ public class QrService {
 
    @Transactional(rollbackFor = {SQLException.class})
     public CustomResponse<Boolean> changeStatus(Qr qr){
-        if(this.repository.existsById(qr.getId()))
+        if(!this.repository.existsById(qr.getId()))
             return new CustomResponse<>(null,true,400,"La subcategoria no existe");
         return new CustomResponse<>(
-                this.repository.findById(qr.getStatus(),qr.getId()),false,200,"Qr actualizada correctamente"
+                this.repository.updateById(qr.getStatus(),qr.getId()),false,200,"Qr actualizada correctamente"
         );
     }
 }

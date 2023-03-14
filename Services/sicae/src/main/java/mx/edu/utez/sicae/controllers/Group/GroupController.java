@@ -1,11 +1,8 @@
 package mx.edu.utez.sicae.controllers.Group;
 
-import mx.edu.utez.sicae.controllers.Career.dtos.CareerDto;
 import mx.edu.utez.sicae.controllers.Group.dtos.GroupDto;
-import mx.edu.utez.sicae.models.career.Career;
 import mx.edu.utez.sicae.models.group.Group;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
-import mx.edu.utez.sicae.services.CareerService;
 import mx.edu.utez.sicae.services.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/group")
+@CrossOrigin(origins =  {"*"})
 public class GroupController {
 
     @Autowired
@@ -46,3 +44,4 @@ public class GroupController {
     }*/
 
 }
+

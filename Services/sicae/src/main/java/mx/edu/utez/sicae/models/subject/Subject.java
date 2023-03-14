@@ -1,3 +1,4 @@
+
 package mx.edu.utez.sicae.models.subject;
 
 import jakarta.persistence.*;
@@ -5,9 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mx.edu.utez.sicae.models.clas.Clas;
-
-import java.util.List;
 
 @Entity
 @Table(name = "subjects")
@@ -23,6 +21,9 @@ public class Subject {
     private String acronim;
     @Column(unique = true, nullable = false)
     private String name;
+    /*
     @OneToMany
     private List<Clas> Clases;
+     */
 }
+

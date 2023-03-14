@@ -1,9 +1,7 @@
 package mx.edu.utez.sicae.controllers.Qr;
 
 
-import mx.edu.utez.sicae.controllers.Group.dtos.GroupDto;
 import mx.edu.utez.sicae.controllers.Qr.dtos.QrDto;
-import mx.edu.utez.sicae.models.group.Group;
 import mx.edu.utez.sicae.models.qr.Qr;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
 import mx.edu.utez.sicae.services.QrService;
@@ -13,10 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/qr")
+@CrossOrigin(origins = {"*"})
 public class QrController {
     @Autowired
     private QrService qrService;

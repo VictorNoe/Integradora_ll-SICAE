@@ -15,6 +15,6 @@ public class SubjectDto {
     private String acronim;
     private String name;
 
-    public Subject castToSubject(){return new Subject(getId(),getAcronim(),getName(),null);}
+    public Subject castToSubject(){return new Subject(getId(),getAcronim(),getName());}
 
 }

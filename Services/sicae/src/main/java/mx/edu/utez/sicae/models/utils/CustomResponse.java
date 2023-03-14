@@ -1,10 +1,10 @@
+
 package mx.edu.utez.sicae.models.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,3 +16,4 @@ public class CustomResponse<T>{
     int statusCode;
     String message;
 }
+

@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/subject")
+@CrossOrigin(origins =  {"*"})
 public class SubjectController {
     @Autowired
     private SubjectService subjectService;

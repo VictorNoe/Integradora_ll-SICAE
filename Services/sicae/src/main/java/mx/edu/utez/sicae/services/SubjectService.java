@@ -1,10 +1,9 @@
 package mx.edu.utez.sicae.services;
 
-import mx.edu.utez.sicae.models.asistence.AsistenceRepository;
-import mx.edu.utez.sicae.models.group.Group;
 import mx.edu.utez.sicae.models.subject.Subject;
 import mx.edu.utez.sicae.models.subject.SubjectRepository;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +13,7 @@ import java.util.List;
 @Service
 @Transactional
 public class SubjectService {
+    @Autowired
     private SubjectRepository repository;
 
     @Transactional(readOnly = true)
@@ -28,8 +28,8 @@ public class SubjectService {
 
     @Transactional(rollbackFor = {SQLException.class})
     public CustomResponse<Subject>insert(Subject subject){
-        if(this.repository.existsById(subject.getId())){
-            return new CustomResponse<>(null,true,400,"Materia ya registrado");
+        if(this.repository.existsByName(subject.getName())){
+            return new CustomResponse<>(null,true,400,"Materia ya registrada");
         }
         return  new CustomResponse<>(this.repository.saveAndFlush(subject),false,200,"Materia registrado coreectamente");
     }

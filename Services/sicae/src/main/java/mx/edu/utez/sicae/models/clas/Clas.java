@@ -10,8 +10,6 @@ import mx.edu.utez.sicae.models.group.Group;
 import mx.edu.utez.sicae.models.subject.Subject;
 import mx.edu.utez.sicae.models.user.User;
 
-import java.util.Set;
-
 @Entity
 @Table(name = "clases")
 @NoArgsConstructor
@@ -23,7 +21,7 @@ public class Clas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, columnDefinition = "boolean default true")
-    private boolean status;
+    private int status;
     @ManyToOne
     @JoinColumn(name = "group_id")
     private Group group;
@@ -35,4 +33,3 @@ public class Clas {
     private Subject subject;
 
 }
-

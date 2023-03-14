@@ -1,3 +1,4 @@
+
 package mx.edu.utez.sicae.models.user;
 
 import jakarta.persistence.*;
@@ -27,8 +28,9 @@ public class User {
     @Column( nullable = false)
     //0=admin, 1=teacher
     private int role;
-    //1=enabled, 0=disabled
     private int status;
+    @Column(nullable = true)
     @OneToMany
     private List<Clas> clases;
 }
+

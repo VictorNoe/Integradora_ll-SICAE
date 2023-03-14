@@ -1,3 +1,4 @@
+
 package mx.edu.utez.sicae.models.qr;
 
 import jakarta.persistence.*;
@@ -26,3 +27,4 @@ public class Qr {
     private Clas clas;
 
 }
+

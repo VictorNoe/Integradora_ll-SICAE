@@ -6,10 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import mx.edu.utez.sicae.models.career.Career;
-import mx.edu.utez.sicae.models.clas.Clas;
-
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "`groups`")
@@ -26,17 +22,20 @@ public class Group {
     private String letter;
     private int year;
     /*@Column
-      private Boolean status;*/
+        private Boolean status;*/
     @ManyToOne
     @JoinColumn(name = "career_id")
     private Career career;
 
+    /*
     @OneToMany
     private List<Clas> clases;
 
     @ManyToMany
     @JoinTable(name = "student_class", joinColumns = @JoinColumn(name = "student_id"), inverseJoinColumns = @JoinColumn(name = "clas_id"))
     private Set<Clas> classes;
+     */
 
 
 }
+

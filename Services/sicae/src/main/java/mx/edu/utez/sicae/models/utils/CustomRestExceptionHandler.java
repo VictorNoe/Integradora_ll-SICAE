@@ -1,3 +1,4 @@
+
 package mx.edu.utez.sicae.models.utils;
 
 import org.springframework.http.HttpHeaders;
@@ -10,7 +11,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 
 public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler{

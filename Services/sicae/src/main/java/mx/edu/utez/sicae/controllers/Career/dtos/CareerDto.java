@@ -22,3 +22,4 @@ public class CareerDto {
         return new Career(getId(), getAcronim(), getName());
     }
 }
+
