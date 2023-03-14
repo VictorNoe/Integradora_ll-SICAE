@@ -1,8 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Table, Button } from 'react-bootstrap';
 import { FaRegEdit } from 'react-icons/fa';
 
 export const TablesAlumno = () => {
+    //Consumo APi
+    const URL = `http://localhost:8080/api/student/`
+    const [Alumno,setAlumno] = useState([])
+
+    useEffect(()=>{
+        fetch(URL).then((response)=>{return response.json()})
+        .then((data)=> {
+            console.log(data.data);
+            setAlumno(data.data)
+        })
+        .catch((error)=>{
+            console.log(error.message)
+        })
+    }, [])
+
+    //Modificaciones 
     const [isEnabled, setIsEnabled] = useState(false);
 
     const handleClick = () => {
@@ -11,7 +27,7 @@ export const TablesAlumno = () => {
 
     const style = {
         Button: {
-            backgroundColor: isEnabled ? 'green' : 'red',
+            backgroundColor: isEnabled ? '#109175' : '#616A6B',
             color: 'white',
             borderRadius: '5px',
             cursor: 'pointer',
@@ -23,7 +39,6 @@ export const TablesAlumno = () => {
             <Table striped bordered hover>
                 <thead style={styles.TableThead}>
                     <tr style={styles.TableCabecera}>
-                        <th>#</th>
                         <th>Nombres</th>
                         <th>Apellidos</th>
                         <th>Matricula</th>
@@ -33,20 +48,23 @@ export const TablesAlumno = () => {
                     </tr>
                 </thead>
                 <tbody style={styles.Text}>
-                    <tr>
-                        <td>1</td>
-                        <td>Enrique</td>
-                        <td>Osorio Jasso</td>
-                        <td>20213tn033@utez.edu.mx</td>
-                        <td>5</td>
-                        <td>B</td>
+                    {Alumno.map((post)=>{
+                        return(
+                        <tr key={post.id}>
+                        <td>{post.name}</td>
+                        <td>{post.lastname}</td>
+                        <td>{post.id}</td>
+                        <td>{post.group.degree}</td>
+                        <td>{post.group.letter}</td>
                         <td>
                             <FaRegEdit style={styles.Icon} />
                             <Button style={style.Button} onClick={handleClick}>
-                                {isEnabled ? 'Enabled' : 'Disabled'}
+                                {isEnabled ? 'Habilitar' : 'Deshabilitar'}
                             </Button>
                         </td>
-                    </tr>
+                        </tr>
+                        )
+                    })}
                 </tbody>
             </Table>
         </>

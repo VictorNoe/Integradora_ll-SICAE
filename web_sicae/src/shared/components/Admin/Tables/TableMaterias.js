@@ -1,8 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Table, Button } from 'react-bootstrap';
 import { FaRegEdit } from 'react-icons/fa';
 
 export const TablesMaterias = () => {
+    //Consumo Api
+    const URL = `http://localhost:8080/api/subject/`
+    const [Materias,setMaterias] = useState([])
+
+    useEffect(()=>{
+        fetch(URL).then((response)=>{return response.json()})
+        .then((data)=> {
+            console.log(data.data);
+            setMaterias(data.data)
+        })
+        .catch((error)=>{
+            console.log(error.message)
+        })
+    }, [])
+
+    //Modificaciones
     const [isEnabled, setIsEnabled] = useState(false);
 
     const handleClick = () => {
@@ -11,7 +27,7 @@ export const TablesMaterias = () => {
 
     const style = {
         Button: {
-            backgroundColor: isEnabled ? 'green' : 'red',
+            backgroundColor: isEnabled ? '#109175' : '#616A6B',
             color: 'white',
             borderRadius: '5px',
             cursor: 'pointer',
@@ -37,7 +53,7 @@ export const TablesMaterias = () => {
                         <td>
                             <FaRegEdit style={styles.Icon} />
                             <Button style={style.Button} onClick={handleClick}>
-                                {isEnabled ? 'Enabled' : 'Disabled'}
+                                {isEnabled ? 'Habilitar' : 'Deshabilitar'}
                             </Button>
                         </td>
                     </tr>

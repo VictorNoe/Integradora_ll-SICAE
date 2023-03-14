@@ -1,8 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Table, Button } from 'react-bootstrap';
 import { FaRegEdit } from 'react-icons/fa';
 
 export const TablesCarrera = () => {
+    //Consumo Api
+    const URL = `http://localhost:8080/api/career/`
+    const [Carrera,setCarrera] = useState([])
+
+    useEffect(()=>{
+        fetch(URL).then((response)=>{return response.json()})
+        .then((data)=> {
+            console.log(data.data);
+            setCarrera(data.data)
+        })
+        .catch((error)=>{
+            console.log(error.message)
+        })
+    }, [])
+
+    //Modificaciones
     const [isEnabled, setIsEnabled] = useState(false);
 
     const handleClick = () => {
@@ -11,7 +27,7 @@ export const TablesCarrera = () => {
 
     const style = {
         Button: {
-            backgroundColor: isEnabled ? 'green' : 'red',
+            backgroundColor: isEnabled ? '#109175' : '#616A6B',
             color: 'white',
             borderRadius: '5px',
             cursor: 'pointer',
@@ -30,17 +46,21 @@ export const TablesCarrera = () => {
                     </tr>
                 </thead>
                 <tbody style={styles.Text}>
-                    <tr>
-                        <td>1</td>
-                        <td>DSM</td>
-                        <td>Desarrollo de Software Multiplataforma</td>
-                        <td>
-                            <FaRegEdit style={styles.Icon} />
-                            <Button style={style.Button} onClick={handleClick}>
-                                {isEnabled ? 'Enabled' : 'Disabled'}
-                            </Button>
-                        </td>
-                    </tr>
+                    {Carrera.map((post)=>{
+                        return(
+                        <tr>
+                            <td>{post.id}</td>
+                            <td>{post.acronim}</td>
+                            <td>{post.name}</td>
+                            <td>
+                                <FaRegEdit style={styles.Icon} />
+                                <Button style={style.Button} onClick={handleClick}>
+                                    {isEnabled ? 'Habilitar' : 'Deshabilitar'}
+                                </Button>
+                            </td>
+                        </tr>
+                        )
+                    })}
                 </tbody>
             </Table>
         </>
