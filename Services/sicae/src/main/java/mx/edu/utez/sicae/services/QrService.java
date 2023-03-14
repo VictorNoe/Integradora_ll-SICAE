@@ -3,6 +3,7 @@ package mx.edu.utez.sicae.services;
 import mx.edu.utez.sicae.models.qr.Qr;
 import mx.edu.utez.sicae.models.qr.QrRepository;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

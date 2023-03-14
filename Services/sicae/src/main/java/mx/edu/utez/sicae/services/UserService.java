@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -42,6 +43,15 @@ public class UserService {
         if (!this.repository.existsById(user.getEmail()))
             return new CustomResponse<>(null,true,400,"Error Usuario no encontrado");
         return new CustomResponse<>(this.repository.updateByEmail(user.getStatus(), user.getEmail()),false,200,"Estado actualizado!");
+    }
+
+
+
+
+    //--------------------------------------------
+    @Transactional(readOnly = true)
+    public Optional<User> getByUsername(String username){
+        return repository.findByUsername(username);
     }
 
 }
