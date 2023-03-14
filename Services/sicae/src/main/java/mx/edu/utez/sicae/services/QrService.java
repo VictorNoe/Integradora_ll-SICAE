@@ -11,6 +11,7 @@ import java.sql.SQLException;
 @Service
 @Transactional
 public class QrService {
+    @Autowired
     private QrRepository repository;
 
    /* @Transactional(readOnly = true)
