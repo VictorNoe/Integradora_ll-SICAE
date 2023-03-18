@@ -1,6 +1,7 @@
 package mx.edu.utez.sicae.controllers.User;
 
 import mx.edu.utez.sicae.controllers.User.dtos.UserDto;
+import mx.edu.utez.sicae.controllers.User.dtos.UserResponse;
 import mx.edu.utez.sicae.models.user.User;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
 import mx.edu.utez.sicae.services.UserService;
@@ -19,11 +20,11 @@ public class UserController {
     @Autowired
     UserService userService;
     @GetMapping("/")
-    public ResponseEntity<CustomResponse<List<User>>> getAll(){
+    public ResponseEntity<CustomResponse<List<UserResponse>>> getAll(){
         return new ResponseEntity<>(this.userService.getAll(), HttpStatus.OK);
     }
     @GetMapping("/{email}")
-    public ResponseEntity<CustomResponse<User>>getOne(@PathVariable("email")String email){
+    public ResponseEntity<CustomResponse<UserResponse>>getOne(@PathVariable("email")String email){
         return new ResponseEntity<>(this.userService.getOne(email),HttpStatus.OK);
     }
     @PostMapping("/")

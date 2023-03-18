@@ -23,9 +23,6 @@ public class AsistenceService {
 
    @Transactional(rollbackFor = {SQLException.class})
     public CustomResponse<Asistence>insert(Asistence asistence){
-        if(this.repository.existsById(asistence.getId())){
-            return new CustomResponse<>(null,true,400,"Asistencia ya registrada");
-        }
         return  new CustomResponse<>(this.repository.saveAndFlush(asistence),false,200,"Aistencia registrada coreectamente");
    }
 

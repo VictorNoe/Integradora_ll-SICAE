@@ -1,6 +1,7 @@
 package mx.edu.utez.sicae.controllers.Clas;
 
 import mx.edu.utez.sicae.controllers.Clas.dtos.ClasDto;
+import mx.edu.utez.sicae.controllers.Clas.dtos.ClasResponse;
 import mx.edu.utez.sicae.models.clas.Clas;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
 import mx.edu.utez.sicae.services.ClasService;
@@ -24,11 +25,11 @@ public class ClasController {
     private UserService userService;
 
     @GetMapping("/")
-    public ResponseEntity<CustomResponse<List<Clas>>> getAll(){
+    public ResponseEntity<CustomResponse<List<ClasResponse>>> getAll(){
         return new ResponseEntity<>(this.clasService.getAll(), HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<CustomResponse<Clas>> getOne(Long id){
+    public ResponseEntity<CustomResponse<ClasResponse>> getOne(@PathVariable Long id){
         return new ResponseEntity<>(this.clasService.getOne(id),HttpStatus.OK);
     }
     @PostMapping("/")

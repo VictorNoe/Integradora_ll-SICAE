@@ -32,7 +32,7 @@ public class UserDto {
                 getPassword(),
                 getRole(),
                 getStatus(),
-                getClases()
+                null
         );
     }
 }
