@@ -47,7 +47,7 @@ public class QrService {
     @Transactional(rollbackFor = {SQLException.class})
     public CustomResponse<Qr> update(Qr qr){
         return new CustomResponse<>(
-                this.repository.saveAndFlush(qr),false,200,"Qr registrado coreectamente"
+                this.repository.saveAndFlush(qr),false,200,"Qr actualizado coreectamente"
         );
     }
 

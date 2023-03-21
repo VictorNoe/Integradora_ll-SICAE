@@ -36,11 +36,11 @@ public class SubjectService {
 
     @Transactional(rollbackFor = {SQLException.class})
     public CustomResponse<Subject> update(Subject subject){
-        if(this.repository.existsById(subject.getId()))
+        if(!this.repository.existsById(subject.getId()))
             return new CustomResponse<>(null,true,400,"Materia no existe");
 
         return new CustomResponse<>(
-                this.repository.saveAndFlush(subject),false,200,"Materia actualizado coreectamente"
+                this.repository.saveAndFlush(subject),false,200,"Materia actualizada coreectamente"
         );
     }
 

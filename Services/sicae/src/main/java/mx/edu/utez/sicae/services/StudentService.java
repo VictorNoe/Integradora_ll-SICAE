@@ -31,7 +31,7 @@ public class StudentService {
     }
     @Transactional(rollbackFor = {SQLException.class})
     public  CustomResponse<Student>update(Student student){
-        if(this.repository.existsById(student.getId()))
+        if(!this.repository.existsById(student.getId()))
             return new CustomResponse<>(null,true,400,"Error el estudiante no eciste");
         return new CustomResponse<>(this.repository.saveAndFlush(student),false,200,"Estudiante actualizado");
     }
