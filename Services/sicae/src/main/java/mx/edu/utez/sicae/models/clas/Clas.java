@@ -22,6 +22,8 @@ public class Clas {
     private Long id;
     @Column(nullable = false, columnDefinition = "boolean default true")
     private int status;
+    @Column(nullable = false, columnDefinition = "1")
+    private int unidad;
     @ManyToOne
     @JoinColumn(name = "group_id")
     private Group group;

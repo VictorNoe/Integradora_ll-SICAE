@@ -1,5 +1,6 @@
 package mx.edu.utez.sicae.services;
 
+import mx.edu.utez.sicae.controllers.Clas.dtos.ClasResponse;
 import mx.edu.utez.sicae.models.clas.Clas;
 import mx.edu.utez.sicae.models.clas.ClasRepository;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,13 +18,21 @@ public class ClasService {
     @Autowired
     private ClasRepository repository;
     @Transactional(readOnly = true)
-    public CustomResponse<List<Clas>> getAll(){
-        return new CustomResponse<>(this.repository.findAll(),false,200, "OK");
+    public CustomResponse<List<ClasResponse>> getAll(){
+        List<Clas> listClases=this.repository.findAll();
+        List<ClasResponse> list=new ArrayList<>();
+        for(int i=0;i<listClases.size();i++){
+            ClasResponse clas= new ClasResponse().castToResponse(listClases.get(i));
+            list.add(clas);
+        }
+        return new CustomResponse<>(list,false,200, "OK");
     }
 
     @Transactional(readOnly = true)
-    public  CustomResponse<Clas> getOne(Long id){
-        return new CustomResponse<>(this.repository.findById(id).get(),false,200,"OK");
+    public  CustomResponse<ClasResponse> getOne(Long id){
+        Clas oldClas= this.repository.findById(id).get();
+        ClasResponse clas= new ClasResponse().castToResponse(oldClas);
+        return new CustomResponse<>(clas,false,200,"OK");
     }
 
     @Transactional(rollbackFor = {SQLException.class})

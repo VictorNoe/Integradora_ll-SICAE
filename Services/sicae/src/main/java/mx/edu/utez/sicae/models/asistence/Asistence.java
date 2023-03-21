@@ -21,8 +21,11 @@ public class Asistence {
     @Column(nullable = false)
     private String date;
 
-    /*@Column(nullable = false)
-    private Boolean status;*/
+    @Column(nullable = false)
+    private Boolean status;
+
+    @Column(nullable = false, columnDefinition = "1")
+    private int unidad;
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;

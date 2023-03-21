@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import mx.edu.utez.sicae.models.clas.Clas;
 import mx.edu.utez.sicae.models.qr.Qr;
 
 @AllArgsConstructor
@@ -13,9 +14,10 @@ import mx.edu.utez.sicae.models.qr.Qr;
 public class QrDto {
     private Long id;
     private String date;
-    private Boolean status;
+    private int status;
+    private Clas clas;
 
-    public Qr castToQr(){return new Qr(getId(),getDate(),getStatus(),null);}
+    public Qr castToQr(){return new Qr(getId(),getDate(),getStatus(),getClas());}
 
 
 }

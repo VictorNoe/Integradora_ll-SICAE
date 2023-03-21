@@ -19,6 +19,7 @@ public class ClasDto {
     @NotEmpty(message = "Campo obligatorio")
     private Long id;
     private int status;
+    private int unidad;
     private Group group;
     private User teacher;
     private Subject subject;
@@ -27,6 +28,7 @@ public class ClasDto {
         return new Clas(
                 getId(),
                 getStatus(),
+                getUnidad(),
                 getGroup(),
                 getTeacher(),
                 getSubject()
