@@ -2,9 +2,13 @@ import React from 'react'
 import { Button } from 'react-bootstrap'
 
 export default function ButtonRegister() {
+  const registrar = () => {
+    console.log("Hola")
+  }
+
   return (
     <>
-      <Button style={styles.Button}>Registrar</Button>{' '}
+      <Button style={styles.Button} onClick={registrar} >Registrar</Button>{' '}
     </>
   )
 }
