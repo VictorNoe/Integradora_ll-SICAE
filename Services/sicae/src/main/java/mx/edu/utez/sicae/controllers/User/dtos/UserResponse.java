@@ -15,6 +15,7 @@ import java.util.List;
 @Getter
 public class UserResponse {
     private String email;
+    private String password;
     private String name;
     private String lastname;
     private int role;
@@ -24,6 +25,7 @@ public class UserResponse {
     public UserResponse castToResponse (User oldUser){
         UserResponse user= new UserResponse();
         user.setEmail(oldUser.getEmail());
+        user.setPassword(oldUser.getPassword());
         user.setName(oldUser.getName());
         user.setLastname(oldUser.getLastname());
         user.setStatus(oldUser.getStatus());
