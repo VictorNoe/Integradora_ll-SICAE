@@ -1,6 +1,5 @@
 package mx.edu.utez.sicae.services;
 
-import mx.edu.utez.sicae.controllers.User.dtos.UserResponse;
 import mx.edu.utez.sicae.models.user.User;
 import mx.edu.utez.sicae.models.user.UserRepository;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
@@ -9,31 +8,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
     @Autowired
     UserRepository repository;
     @Transactional(readOnly = true)
-    public CustomResponse<List<UserResponse>> getAll(){
-        List<UserResponse>listUsers= new ArrayList<>();
-        List<User> list=this.repository.findAll();
-        for(int i=0;i<list.size();i++){
-            UserResponse user= new UserResponse().castToResponse(list.get(i));
-            listUsers.add(user);
-            System.out.println(listUsers.get(i).getEmail());
-        }
-        return new CustomResponse<>(listUsers,true,200,"OK");
+    public CustomResponse<List<User>>getAll(){
+        return new CustomResponse<>(this.repository.findAll(),false,200,"OK");
     }
-
     @Transactional(readOnly = true)
-    public CustomResponse<UserResponse> getOne(String email){
-        User oldUser=this.repository.findById(email).get();
-        UserResponse user=new UserResponse().castToResponse(oldUser);
-        return new CustomResponse<>(user,false,200,"OK");
-    }
+    public CustomResponse<User> getOne(String email){return new CustomResponse<>(this.repository.findById(email).get(),false,200,"OK");}
     @Transactional(rollbackFor ={SQLException.class} )
     public CustomResponse<User> insert(User user){
         if (this.repository.existsById(user.getEmail()))
@@ -56,6 +43,15 @@ public class UserService {
         if (!this.repository.existsById(user.getEmail()))
             return new CustomResponse<>(null,true,400,"Error Usuario no encontrado");
         return new CustomResponse<>(this.repository.updateByEmail(user.getStatus(), user.getEmail()),false,200,"Estado actualizado!");
+    }
+
+
+
+
+    //--------------------------------------------
+    @Transactional(readOnly = true)
+    public Optional<User> getByUsername(String username){
+        return repository.findByUsername(username);
     }
 
 }

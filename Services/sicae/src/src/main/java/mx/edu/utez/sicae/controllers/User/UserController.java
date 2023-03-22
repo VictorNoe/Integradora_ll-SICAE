@@ -1,7 +1,7 @@
 package mx.edu.utez.sicae.controllers.User;
 
+import jakarta.validation.Valid;
 import mx.edu.utez.sicae.controllers.User.dtos.UserDto;
-import mx.edu.utez.sicae.controllers.User.dtos.UserResponse;
 import mx.edu.utez.sicae.models.user.User;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
 import mx.edu.utez.sicae.services.UserService;
@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -20,11 +19,11 @@ public class UserController {
     @Autowired
     UserService userService;
     @GetMapping("/")
-    public ResponseEntity<CustomResponse<List<UserResponse>>> getAll(){
+    public ResponseEntity<CustomResponse<List<User>>> getAll(){
         return new ResponseEntity<>(this.userService.getAll(), HttpStatus.OK);
     }
     @GetMapping("/{email}")
-    public ResponseEntity<CustomResponse<UserResponse>>getOne(@PathVariable("email")String email){
+    public ResponseEntity<CustomResponse<User>>getOne(@PathVariable("email")String email){
         return new ResponseEntity<>(this.userService.getOne(email),HttpStatus.OK);
     }
     @PostMapping("/")

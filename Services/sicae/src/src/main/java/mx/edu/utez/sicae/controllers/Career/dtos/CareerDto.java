@@ -1,12 +1,12 @@
 package mx.edu.utez.sicae.controllers.Career.dtos;
 
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import mx.edu.utez.sicae.models.career.Career;
 
-import javax.validation.constraints.*;
 
 @AllArgsConstructor
 @NoArgsConstructor

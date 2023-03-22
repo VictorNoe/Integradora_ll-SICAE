@@ -9,9 +9,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-/*
-public class AuthUser implements UserDetails {
-    private String username;
+
+public class AuthUser /*implements UserDetails*/ {
+    /*private String username;
     @JsonIgnore
     private String password;
 
@@ -61,6 +61,5 @@ public class AuthUser implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
+    }*/
 }
-*/

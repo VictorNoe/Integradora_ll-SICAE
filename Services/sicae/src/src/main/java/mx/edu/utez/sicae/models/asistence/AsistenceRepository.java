@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AsistenceRepository extends JpaRepository<Asistence,Long> {
     boolean existsById(long id);
+    boolean existsByStudentIdAndQrId(String id_student, long id_qr);
 }

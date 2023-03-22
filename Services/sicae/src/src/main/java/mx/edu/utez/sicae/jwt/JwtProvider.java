@@ -1,7 +1,7 @@
 package mx.edu.utez.sicae.jwt;
 
-//import io.jsonwebtoken.*;
-//import mx.edu.utez.sicae.models.security.AuthUser;
+import io.jsonwebtoken.*;
+import mx.edu.utez.sicae.models.security.AuthUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,8 +9,8 @@ import org.springframework.security.core.Authentication;
 
 import java.util.Date;
 
-public class JwtProvider {/*
-    public final static Logger LOGGER= LoggerFactory.getLogger(JwtProvider.class);
+public class JwtProvider {
+    /*public final static Logger LOGGER= LoggerFactory.getLogger(JwtProvider.class);
     @Value("${jwt.secret}")
     private String secret;
     @Value("${jwt.expiration}")

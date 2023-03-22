@@ -1,9 +1,9 @@
 package mx.edu.utez.sicae.models.security;
 
 import jakarta.servlet.Filter;
-//import mx.edu.utez.sicae.jwt.JwtEntryPoint;
+import mx.edu.utez.sicae.jwt.JwtEntryPoint;
 import mx.edu.utez.sicae.jwt.JwtTokenFilter;
-//import mx.edu.utez.sicae.services.security.AuthService;
+import mx.edu.utez.sicae.services.security.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,12 +19,12 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-/*
+
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class MainSecurity extends WebSecurityConfigurerAdapter{
-
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class MainSecurity /*extends WebSecurityConfigurerAdapter*/{
+/*
     @Autowired
     private AuthService service;
     @Autowired
@@ -68,5 +68,5 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
         http.addFilterBefore((Filter) jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         //        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
-
-}*/
+*/
+}

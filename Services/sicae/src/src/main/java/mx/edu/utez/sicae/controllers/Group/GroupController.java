@@ -1,5 +1,6 @@
 package mx.edu.utez.sicae.controllers.Group;
 
+import jakarta.validation.Valid;
 import mx.edu.utez.sicae.controllers.Group.dtos.GroupDto;
 import mx.edu.utez.sicae.models.group.Group;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
@@ -9,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController

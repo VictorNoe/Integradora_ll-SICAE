@@ -4,7 +4,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-//import mx.edu.utez.sicae.services.security.AuthService;
+import mx.edu.utez.sicae.services.security.AuthService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.io.IOException;
 
 public class JwtTokenFilter {
-  /*  private final static Logger LOGGER= LoggerFactory.getLogger(JwtTokenFilter.class);
+    /*private final static Logger LOGGER= LoggerFactory.getLogger(JwtTokenFilter.class);
     @Autowired
     JwtProvider jwtProvider;
     @Autowired
