@@ -1,6 +1,7 @@
 
 package mx.edu.utez.sicae.controllers.Group.dtos;
 
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +9,6 @@ import lombok.Setter;
 import mx.edu.utez.sicae.models.career.Career;
 import mx.edu.utez.sicae.models.group.Group;
 
-import javax.validation.constraints.NotEmpty;
 
 @AllArgsConstructor
 @NoArgsConstructor

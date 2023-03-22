@@ -8,6 +8,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
     @Query (value = "UPDATE users SET status=:status WHERE email=:email",nativeQuery = true)
@@ -18,5 +20,7 @@ public interface UserRepository extends JpaRepository<User, String> {
     void insertUserClas(@Param("email")String email,@Param("clas")Long clas);
         //boolean updateByEmail(@Param("email")String email)
     boolean existsByEmail(String email);
+    Optional<User> findByUsername(String username);
+
 }
 

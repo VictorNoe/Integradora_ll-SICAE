@@ -1,7 +1,7 @@
 package mx.edu.utez.sicae.controllers.Clas;
 
+import jakarta.validation.Valid;
 import mx.edu.utez.sicae.controllers.Clas.dtos.ClasDto;
-import mx.edu.utez.sicae.controllers.Clas.dtos.ClasResponse;
 import mx.edu.utez.sicae.models.clas.Clas;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
 import mx.edu.utez.sicae.services.ClasService;
@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,11 +24,11 @@ public class ClasController {
     private UserService userService;
 
     @GetMapping("/")
-    public ResponseEntity<CustomResponse<List<ClasResponse>>> getAll(){
+    public ResponseEntity<CustomResponse<List<Clas>>> getAll(){
         return new ResponseEntity<>(this.clasService.getAll(), HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<CustomResponse<ClasResponse>> getOne(@PathVariable Long id){
+    public ResponseEntity<CustomResponse<Clas>> getOne(Long id){
         return new ResponseEntity<>(this.clasService.getOne(id),HttpStatus.OK);
     }
     @PostMapping("/")

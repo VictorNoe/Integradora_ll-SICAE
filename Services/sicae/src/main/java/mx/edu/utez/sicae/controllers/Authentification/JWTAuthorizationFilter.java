@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.stream.Collectors;
 
 public class JWTAuthorizationFilter {
-    private final String HEADER = "Authorization";
+  /*  private final String HEADER = "Authorization";
     private final String PREFIX = "Bearer ";
     private final String SECRET = "mySecretKey";
 
@@ -58,6 +58,7 @@ public class JWTAuthorizationFilter {
         if (authenticationHeader == null || !authenticationHeader.startsWith(PREFIX))
             return false;
         return true;
-    }
+    }*/
+
 
 }

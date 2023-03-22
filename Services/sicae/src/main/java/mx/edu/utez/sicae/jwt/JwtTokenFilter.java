@@ -15,7 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.io.IOException;
 
 public class JwtTokenFilter {
-    private final static Logger LOGGER= LoggerFactory.getLogger(JwtTokenFilter.class);
+    /*private final static Logger LOGGER= LoggerFactory.getLogger(JwtTokenFilter.class);
     @Autowired
     JwtProvider jwtProvider;
     @Autowired
@@ -42,5 +42,5 @@ public class JwtTokenFilter {
         if(header != null && header.startsWith("Bearer"))
             return header.replace("Bearer","");
         return null;
-    }
+    }*/
 }

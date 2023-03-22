@@ -10,12 +10,12 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 
 import java.io.IOException;
 
-public class JwtEntryPoint implements AuthenticationEntryPoint {
-    public final static Logger LOGGER= LoggerFactory.getLogger(JwtEntryPoint.class);
+public class JwtEntryPoint /*implements AuthenticationEntryPoint*/ {
+   /* public final static Logger LOGGER= LoggerFactory.getLogger(JwtEntryPoint.class);
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
         LOGGER.error("Error commence method");
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"No autorizado");
-    }
+    }*/
 }

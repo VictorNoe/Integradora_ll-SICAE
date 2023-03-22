@@ -28,6 +28,8 @@ public class CareerService {
     }
     @Transactional(rollbackFor = {SQLException.class})
     public CustomResponse<Career> insert(Career career){
+        if(this.repository.existsByName(career.getName()))
+            return new CustomResponse<>(null,true,400,"Carrera ya registrada");
         return new CustomResponse<>(this.repository.saveAndFlush(career), false,200,"Carrera registrada!");
     }
     @Transactional(rollbackFor =SQLException.class )

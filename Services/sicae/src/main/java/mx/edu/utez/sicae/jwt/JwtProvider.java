@@ -10,7 +10,7 @@ import org.springframework.security.core.Authentication;
 import java.util.Date;
 
 public class JwtProvider {
-    public final static Logger LOGGER= LoggerFactory.getLogger(JwtProvider.class);
+    /*public final static Logger LOGGER= LoggerFactory.getLogger(JwtProvider.class);
     @Value("${jwt.secret}")
     private String secret;
     @Value("${jwt.expiration}")
@@ -43,5 +43,5 @@ public class JwtProvider {
             LOGGER.error("Error en la firma del token");
         }
         return false;
-    }
+    }*/
 }

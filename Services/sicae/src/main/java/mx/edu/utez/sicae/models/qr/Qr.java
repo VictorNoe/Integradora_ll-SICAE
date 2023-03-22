@@ -20,8 +20,8 @@ public class Qr {
     private Long id;
     @Column(nullable = false)
     private String date;
-    @Column(nullable = false)
-    private int status;
+    @Column(nullable = false, columnDefinition = "boolean default true")
+    private Boolean status;
     @ManyToOne
     @JoinColumn(name = "class_id")
     private Clas clas;

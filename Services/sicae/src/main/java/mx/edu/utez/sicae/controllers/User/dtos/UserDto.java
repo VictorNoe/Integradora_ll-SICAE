@@ -1,5 +1,6 @@
 package mx.edu.utez.sicae.controllers.User.dtos;
 
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,7 +8,6 @@ import lombok.Setter;
 import mx.edu.utez.sicae.models.clas.Clas;
 import mx.edu.utez.sicae.models.user.User;
 
-import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @AllArgsConstructor
@@ -32,7 +32,7 @@ public class UserDto {
                 getPassword(),
                 getRole(),
                 getStatus(),
-                null
+                getClases()
         );
     }
 }

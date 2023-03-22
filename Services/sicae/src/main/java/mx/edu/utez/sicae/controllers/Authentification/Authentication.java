@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 public class Authentication {
-
+/*
     @PostMapping("login")
     public User login(@RequestParam("email") String email, @RequestParam("password") String password) {
 
@@ -44,5 +44,5 @@ public class Authentication {
                         secretKey.getBytes()).compact();
 
         return "Bearer " + token;
-    }
+    }*/
 }

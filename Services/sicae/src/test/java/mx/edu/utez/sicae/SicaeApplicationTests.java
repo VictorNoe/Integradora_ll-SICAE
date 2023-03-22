@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package mx.edu.utez.sicae;
 
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,6 @@ class SicaeApplicationTests {
 	}
 
 }
-=======
 package mx.edu.utez.sicae;
 
 import org.junit.jupiter.api.Test;
@@ -26,4 +24,3 @@ class SicaeApplicationTests {
 	}
 
 }
->>>>>>> Omar

@@ -1,12 +1,12 @@
 package mx.edu.utez.sicae.controllers.Asistence.dtos;
 
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import mx.edu.utez.sicae.models.asistence.Asistence;
 
-import javax.validation.constraints.NotEmpty;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,11 +16,10 @@ public class AsistenceDto {
     @NotEmpty(message = "Campo Obligatorio")
     private Long id;
     private String date;
-    private Boolean status;
-    private int unidad;
 
     public Asistence castToAsistence(){
-        return  new Asistence(getId(),getDate(),getStatus(),getUnidad(), null,null);
+        //return  new Asistence(getId(),getDate(),getStatus(), null,null);
+        return  new Asistence(getId(),getDate(), null,null);
     }
 
 }

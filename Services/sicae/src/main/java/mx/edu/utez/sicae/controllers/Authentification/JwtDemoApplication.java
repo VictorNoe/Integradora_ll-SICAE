@@ -12,7 +12,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @SpringBootApplication
 
 public class JwtDemoApplication {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         SpringApplication.run(JwtDemoApplication.class, args);
     }
 
@@ -28,5 +28,5 @@ public class JwtDemoApplication {
                     .antMatchers(HttpMethod.POST, "/user").permitAll()
                     .anyRequest().authenticated();
         }
-    }
+    }*/
 }
