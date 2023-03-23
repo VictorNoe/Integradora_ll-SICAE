@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Table, Button } from 'react-bootstrap';
 import { FaRegEdit } from 'react-icons/fa';
+import {Form_Student} from "../Forms/Form_Student";
 
 export const TablesAlumno = () => {
     //Consumo APi
     const URL = `http://localhost:8080/api/student/`
     const [Alumno,setAlumno] = useState([])
+    const [modalShow, setModalShow] = useState(false)
 
     useEffect(()=>{
         fetch(URL).then((response)=>{return response.json()})
@@ -27,7 +29,7 @@ export const TablesAlumno = () => {
 
     const style = {
         Button: {
-            backgroundColor: isEnabled ? '#109175' : '#616A6B',
+            backgroundColor: isEnabled ? 'green' : 'red',
             color: 'white',
             borderRadius: '5px',
             cursor: 'pointer',
@@ -36,8 +38,9 @@ export const TablesAlumno = () => {
     };
     return (
         <>
-            <Table striped bordered hover>
-                <thead style={styles.TableThead}>
+            <div className="container-fluid mt-3">
+                <Table striped bordered hover>
+                    <thead style={styles.TableThead}>
                     <tr style={styles.TableCabecera}>
                         <th>Nombres</th>
                         <th>Apellidos</th>
@@ -46,27 +49,30 @@ export const TablesAlumno = () => {
                         <th>Grupos</th>
                         <th>Acciones</th>
                     </tr>
-                </thead>
-                <tbody style={styles.Text}>
+                    </thead>
+                    <tbody style={styles.Text}>
                     {Alumno.map((post)=>{
                         return(
-                        <tr key={post.id}>
-                        <td>{post.name}</td>
-                        <td>{post.lastname}</td>
-                        <td>{post.id}</td>
-                        <td>{post.group.degree}</td>
-                        <td>{post.group.letter}</td>
-                        <td>
-                            <FaRegEdit style={styles.Icon} />
-                            <Button style={style.Button} onClick={handleClick}>
-                                {isEnabled ? 'Habilitar' : 'Deshabilitar'}
-                            </Button>
-                        </td>
-                        </tr>
+                            <tr key={post.id}>
+                                <td>{post.name}</td>
+                                <td>{post.lastname}</td>
+                                <td>{post.id}</td>
+                                <td>{post.group.degree}</td>
+                                <td>{post.group.letter}</td>
+                                <td>
+                                    <FaRegEdit style={styles.Icon}/>
+                                </td>
+                            </tr>
                         )
                     })}
-                </tbody>
-            </Table>
+                    </tbody>
+                </Table>
+            </div>
+            <a onClick={()=>(setModalShow(true))} className="btn-flotante">Registrar</a>
+            <Form_Student
+                show={modalShow}
+                onHide={()=> (setModalShow(false))}
+            />
         </>
     )
 }

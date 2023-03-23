@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { Table, Button } from 'react-bootstrap';
-import { FaRegEdit } from 'react-icons/fa';
+import React, {useEffect, useState} from 'react'
+import {Navbar} from 'react-bootstrap';
+import {Card_class} from "../Cards/Card_Class";
+import {Form_Class} from "../Forms/Form_Class";
 
 export const TableClases = () => {
     //Consumo Api
     const URL = `http://localhost:8080/api/career/`
     const [Carrera,setCarrera] = useState([])
+    const [modalShow, setModalShow] = useState(false)
 
     useEffect(()=>{
         fetch(URL).then((response)=>{return response.json()})
@@ -16,25 +18,31 @@ export const TableClases = () => {
         .catch((error)=>{
             console.log(error.message)
         })
+
     }, [])
     return (
         <>
-            <div>
-                <div style={styles.Div}>
-                    <div style={styles.Div1}>
-                        <Table striped bordered hover>
-                            <tbody style={styles.Text}>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Enrique</td>
-                                    <td>Osorio Jasso</td>
-                                    <td>20213tn033</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </div>
+            <div className="container-fluid mt-3">
+                <div className="container-fluid" style={{backgroundColor:"#255770FF", borderTopRightRadius:20, borderTopLeftRadius:20}}>
+                    <Navbar>
+                        <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+                        <Navbar.Toggle />
+                        <Navbar.Collapse className="justify-content-end">
+                            <Navbar.Text>
+                                Signed in as: <a href="#login">Mark Otto</a>
+                            </Navbar.Text>
+                        </Navbar.Collapse>
+                    </Navbar>
+                </div>
+                <div className="container-fluid" style={{borderColor:"black", backgroundColor:"#fff", borderBottomRightRadius:20, borderBottomLeftRadius:20}}>
+                    <Card_class/>
                 </div>
             </div>
+            <a onClick={()=>(setModalShow(true))} className="btn-flotante">Registrar</a>
+            <Form_Class
+                show={modalShow}
+                onHide={()=> (setModalShow(false))}
+            />
         </>
     )
 }

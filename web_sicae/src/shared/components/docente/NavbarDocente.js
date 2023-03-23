@@ -1,45 +1,110 @@
-import {Button, Container, Image, Navbar, NavDropdown} from "react-bootstrap";
-import PhotoPerfil from '../../../assets/img/Noe.png'
-import {Link, Route, Routes} from "react-router-dom";
+import Noe from "../../../assets/img/Noe.png"
+import {Route, Routes, useNavigate} from "react-router-dom";
 import {Cards} from "./Cards";
 import {TableStudens} from "./TableStudens";
+import React, {useEffect, useState} from "react";
+import {ListGroup, Modal, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import {Loading} from "../Loading";
 
-export const NavbarDocente = () => {
-    let name = "Flores Toledo Victor Noe"
-    let email = "20213tn059@utez.edu.mx"
+function MyVerticallyCenteredModal(props) {
+
+    const navigation = useNavigate();
+
+    const cerrar = () => {
+        navigation("/")
+        sessionStorage.clear()
+    }
 
     return (
-        <div>
-            <Navbar className="mb-5" style={{background: "#109175",color: "white"}}>
-                <Container>
-                    <Navbar.Brand href="/Login" style={{color:"#fff"}}> SICAE</Navbar.Brand>
-                    <Navbar.Toggle/>
-                    <Navbar.Collapse className="justify-content-end">
-                        <NavDropdown title={name} id="basic-nav-dropdown">
-                            <NavDropdown.Item>
-                                <Image
-                                    style={{width:100, height:100}}
-                                    src={PhotoPerfil}
-                                    roundedCircle
-                                    className="rounded mx-auto d-block"
-                                />
-                                <div className="text-center">
-                                    <h1 style={{fontSize: 20}}>{name}</h1>
-                                    <h1 style={{fontSize: 10}}>{email}</h1>
-                                </div>
-                                <div className="col-6 d-grid gap-2 mx-auto">
-                                    <Link to="/"><Button className="btn btn-danger" type="submit">Cerrar Sesión</Button></Link>
-                                </div>
-                            </NavDropdown.Item>
-                        </NavDropdown>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-            <Routes>
-                <Route path='Home' element={<Cards/>}/>
-                <Route path='list' element={<TableStudens/>}/>
-            </Routes>
-        </div>
+        <Modal
+            {...props}
+            size="sm"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Body>
+                <h4 className="text-center">¿Quieres cerrar sesion?</h4>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={props.onHide} variant="danger">Cancelar</Button>
+                <Button onClick={cerrar} variant="success">Aceptar</Button>
+            </Modal.Footer>
+        </Modal>
+    );
+}
 
+export const NavbarDocente = ({userLogin}) => {
+    console.log("============")
+    console.log(userLogin)
+    const navigation = useNavigate();
+    const [modalShow, setModalShow] = useState(false);
+    const [users,setUser] = useState([]);
+
+    useEffect(() => {
+        let email = sessionStorage.getItem('email');
+        fetch("http://localhost:8080/api/users/"+email).then((res) => {
+            return res.json();
+        }).then((resp) => {
+            if(Object.keys(resp).length===0) {
+                alert("error");
+            } else {
+                if (!sessionStorage.getItem('email')){
+                    navigation("/")
+                }
+                if(sessionStorage.getItem('role') === "0"){
+                    navigation(-1)
+                }
+                setUser(resp.data);
+            }
+        })
+    },[]);
+
+    if (!sessionStorage.getItem('email') || sessionStorage.getItem('role') === "0") return <Loading/>
+    return (
+        <>
+            <>
+                <div className="container-fluid" style={{backgroundColor:"#109175"}}>
+                    <Navbar>
+                        <Navbar.Brand href="/loginDte" style={{color:"white"}}>SICAE</Navbar.Brand>
+                        <Navbar.Toggle />
+                        <Navbar.Collapse className="justify-content-end">
+                            <Nav>
+                                <NavDropdown
+                                    align="end"
+                                    title={users.email}
+                                >
+                                    <ListGroup variant="flush" style={{width:"400px"}}>
+                                        <ListGroup.Item>
+                                            <div className="d-flex justify-content-center align-items-center mb-3 mt-3">
+                                                <img src={Noe} style={{height:"100px", width:"100px"}}/>
+                                            </div>
+                                            <div className="text-center mb-3 mt-3">
+                                                <h5 className="mb-3 mt-3">{users.name} {users.lastname}</h5>
+                                                <h5>{users.email}</h5>
+                                            </div>
+                                            <div className="d-flex justify-content-center align-items-center mb-3 mt-3">
+                                                <Button variant="danger" onClick={() => setModalShow(true)}>
+                                                    Cerrar Sesión
+                                                </Button>
+
+                                                <MyVerticallyCenteredModal
+                                                    show={modalShow}
+                                                    onHide={() => setModalShow(false)}
+                                                />
+                                            </div>
+                                        </ListGroup.Item>
+                                    </ListGroup>
+                                </NavDropdown>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Navbar>
+                </div>
+                <Routes>
+                    <Route index element={<Cards users={users}/>}/>
+                    <Route path="list/:id" element={<TableStudens/>}/>
+                </Routes>
+            </>
+        </>
     )
 }

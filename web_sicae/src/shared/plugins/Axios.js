@@ -1,6 +1,30 @@
-import * as instance from 'axios';
+import axios from "axios";
 
-const requestHandler = (request) => {
-    request.headers["Accept"] = "application/json";
-    request.headers["Content-Type"] = "application/json";
-}
+export const URLSERVIS = axios.create({
+    baseURL : "http://localhost:8080/api/"
+});
+
+const login = (email, password) => {
+    return URLSERVIS("users/",{
+        email,
+        password,
+    }).then((res) => {
+        if(res.data.data.email) {
+            localStorage.setItem("email",JSON.stringify(res.data));
+        }
+        return res.data;
+    });
+};
+
+
+const AuthService = {
+    login,
+};
+
+export {
+    AuthService
+};
+
+
+
+

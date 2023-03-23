@@ -1,68 +1,61 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Table, Button } from 'react-bootstrap';
 import { FaRegEdit } from 'react-icons/fa';
+import { Form_Carreer } from "../Forms/Form_Carreer";
 
 export const TablesCarrera = () => {
     //Consumo Api
     const URL = `http://localhost:8080/api/career/`
-    const [Carrera,setCarrera] = useState([])
+    const [Carrera, setCarrera] = useState([])
+    const [modalShow, setModalShow] = useState(false)
+    const [idCarrera, setIdCarrera] = useState(null)
+    const [state, setState] = useState(false)
 
-    useEffect(()=>{
-        fetch(URL).then((response)=>{return response.json()})
-        .then((data)=> {
-            console.log(data.data);
-            setCarrera(data.data)
-        })
-        .catch((error)=>{
-            console.log(error.message)
-        })
+    useEffect(() => {
+        fetch(URL).then((response) => { return response.json() })
+            .then((data) => {
+                console.log(data.data);
+                setCarrera(data.data)
+            })
+            .catch((error) => {
+                console.log(error.message)
+            })
     }, [])
 
-    //Modificaciones
-    const [isEnabled, setIsEnabled] = useState(false);
-
-    const handleClick = () => {
-        setIsEnabled(!isEnabled);
-    }
-
-    const style = {
-        Button: {
-            backgroundColor: isEnabled ? '#109175' : '#616A6B',
-            color: 'white',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            border: 'none',
-        }
-    };
     return (
         <>
-            <Table striped bordered hover>
-                <thead style={styles.TableThead}>
-                    <tr style={styles.TableCabecera}>
-                        <th>#</th>
-                        <th>Acronimo</th>
-                        <th>Nombre</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody style={styles.Text}>
-                    {Carrera.map((post)=>{
-                        return(
-                        <tr>
-                            <td>{post.id}</td>
-                            <td>{post.acronim}</td>
-                            <td>{post.name}</td>
-                            <td>
-                                <FaRegEdit style={styles.Icon} />
-                                <Button style={style.Button} onClick={handleClick}>
-                                    {isEnabled ? 'Habilitar' : 'Deshabilitar'}
-                                </Button>
-                            </td>
+            <div className="container-fluid mt-3">
+                <Table striped bordered hover>
+                    <thead style={styles.TableThead}>
+                        <tr style={styles.TableCabecera}>
+                            <th>#</th>
+                            <th>Acronimo</th>
+                            <th>Nombre</th>
+                            <th>Acciones</th>
                         </tr>
-                        )
-                    })}
-                </tbody>
-            </Table>
+                    </thead>
+                    <tbody style={styles.Text}>
+                        {Carrera.map((carrera) => (
+                            <tr>
+                                <td>{carrera.id}</td>
+                                <td>{carrera.acronim}</td>
+                                <td>{carrera.name}</td>
+                                <td>
+                                    <FaRegEdit style={styles.Icon} onClick={()=>(setModalShow(true),setIdCarrera(carrera.id),setState(true))} />
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+            </div>
+            <a onClick={() => (setModalShow(true),setIdCarrera(null))} className="btn-flotante">Registrar</a>
+            <Form_Carreer
+                id={idCarrera}
+                state={state}
+                show={modalShow}
+                onHide={()=> (setModalShow(false),setIdCarrera(null),setState(false))}
+                onState={()=> (setState(false))}
+            />
         </>
     )
 }
@@ -85,7 +78,7 @@ const styles = {
         fontWeight: "SemiBold",
         textAlign: "center",
     },
-    Icon: { 
+    Icon: {
         height: "auto",
         width: "30px",
         marginRight: "10px",
