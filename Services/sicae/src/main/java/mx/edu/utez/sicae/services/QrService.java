@@ -55,8 +55,10 @@ public class QrService {
             Asistence asistence= new Asistence();
             asistence.setDate(qr.getDate());
             asistence.setQr(qr);
+            asistence.setStatus(false);
             asistence.setStudent(listIdSudents.get(i));
-            this.asistenceRepository.saveAndFlush(asistence);
+            asistence=this.asistenceRepository.saveAndFlush(asistence);
+            this.asistenceRepository.insert(listIdSudents.get(i).getId(),asistence.getId());
         }
 
         return new CustomResponse<>(qr,false,200,"Qr registrado coreectamente");
