@@ -17,6 +17,10 @@ public interface UserRepository extends JpaRepository<User, String> {
     @Transactional
     void insertUserClas(@Param("email")String email,@Param("clas")Long clas);
         //boolean updateByEmail(@Param("email")String email)
+        @Modifying
+        @Query(value = "UPDATE users SET user_email=:email WHERE clases_id=:clas",nativeQuery = true)
+        @Transactional
+        void updateClasUser(@Param("email")String email,@Param("clas")Long clas);
 
     boolean existsByEmail(String email);
 }

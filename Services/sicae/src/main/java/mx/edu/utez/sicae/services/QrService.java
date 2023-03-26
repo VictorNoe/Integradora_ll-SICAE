@@ -1,8 +1,12 @@
 package mx.edu.utez.sicae.services;
 
 import mx.edu.utez.sicae.controllers.Qr.dtos.QrResponse;
+import mx.edu.utez.sicae.models.asistence.Asistence;
+import mx.edu.utez.sicae.models.asistence.AsistenceRepository;
 import mx.edu.utez.sicae.models.qr.Qr;
 import mx.edu.utez.sicae.models.qr.QrRepository;
+import mx.edu.utez.sicae.models.student.Student;
+import mx.edu.utez.sicae.models.student.StudentRepository;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +21,10 @@ import java.sql.SQLException;
 public class QrService {
     @Autowired
     private QrRepository repository;
+    @Autowired
+    private AsistenceRepository asistenceRepository;
+    @Autowired
+    private StudentRepository studentRepository;
 
     @Transactional(readOnly = true)
     public CustomResponse<List<QrResponse>> getAll(){
@@ -41,7 +49,17 @@ public class QrService {
 
     @Transactional(rollbackFor = {SQLException.class})
     public CustomResponse<Qr>insert(Qr qr){
-        return  new CustomResponse<>(this.repository.saveAndFlush(qr),false,200,"Qr registrado coreectamente");
+        qr=this.repository.saveAndFlush(qr);
+        List<Student> listIdSudents=this.studentRepository.students(qr.getClas().getGroup().getId());
+        for(int i=0;i<listIdSudents.size();i++){
+            Asistence asistence= new Asistence();
+            asistence.setDate(qr.getDate());
+            asistence.setQr(qr);
+            asistence.setStudent(listIdSudents.get(i));
+            this.asistenceRepository.saveAndFlush(asistence);
+        }
+
+        return new CustomResponse<>(qr,false,200,"Qr registrado coreectamente");
     }
 
     @Transactional(rollbackFor = {SQLException.class})

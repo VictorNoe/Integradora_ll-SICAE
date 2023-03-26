@@ -29,6 +29,7 @@ public class StudentService {
             return new CustomResponse<>(null,true,400,"Error el estudiante ya existe");
         return new CustomResponse<>(this.repository.saveAndFlush(student),false,200,"Estudiante creado con éxito");
     }
+
     @Transactional(rollbackFor = {SQLException.class})
     public  CustomResponse<Student>update(Student student){
         if(!this.repository.existsById(student.getId()))
