@@ -40,7 +40,7 @@ public class ClasController {
     }
 
     @PutMapping("/")
-    public  ResponseEntity<CustomResponse<Clas>>update(@Valid @RequestBody Clas clas){
+    public  ResponseEntity<CustomResponse>update(@Valid @RequestBody Clas clas){
         return new ResponseEntity<>(this.clasService.update(clas),HttpStatus.CREATED);
     }
 

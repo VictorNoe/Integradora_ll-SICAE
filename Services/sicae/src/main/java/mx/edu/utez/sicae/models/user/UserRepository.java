@@ -17,6 +17,7 @@ public interface UserRepository extends JpaRepository<User, String> {
     @Transactional
     void insertUserClas(@Param("email")String email,@Param("clas")Long clas);
         //boolean updateByEmail(@Param("email")String email)
+
     boolean existsByEmail(String email);
 }
 

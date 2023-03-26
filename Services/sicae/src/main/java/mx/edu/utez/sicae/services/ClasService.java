@@ -44,10 +44,13 @@ public class ClasService {
     }
 
     @Transactional(rollbackFor = {SQLException.class})
-    public CustomResponse<Clas>update(Clas clas){
+    public CustomResponse update(Clas clas){
         if(!this.repository.existsById(clas.getId()))
             return new CustomResponse<>(null,true,400,"Error clase no encontrada");
-        return new CustomResponse<>(this.repository.saveAndFlush(clas),false,200,"Clase actualizada con exito!");
+        this.repository.updateClasUser(clas.getUser().getEmail(),clas.getId());
+        this.repository.updateUserClas(clas.getUser().getEmail(),clas.getId());
+        this.repository.saveAndFlush(clas);
+        return new CustomResponse<>("",false,200,"Clase actualizada con exito!");
     }
     @Transactional(rollbackFor = {SQLException.class})
     public CustomResponse<Boolean>changeStatus(Clas clas){

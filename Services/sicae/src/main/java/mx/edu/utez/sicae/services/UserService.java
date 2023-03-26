@@ -51,6 +51,7 @@ public class UserService {
     public void updateClases(Long clas, String email){
         this.repository.insertUserClas(email,clas);
     }
+
     @Transactional(rollbackFor = {SQLException.class})
     public  CustomResponse<Boolean> changeStatus(User user){
         if (!this.repository.existsById(user.getEmail()))
