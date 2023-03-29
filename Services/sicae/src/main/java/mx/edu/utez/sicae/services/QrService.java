@@ -55,13 +55,13 @@ public class QrService {
             Asistence asistence= new Asistence();
             asistence.setDate(qr.getDate());
             asistence.setQr(qr);
-            asistence.setStatus(false);
+            asistence.setStatus(0);
             asistence.setStudent(listIdSudents.get(i));
             asistence=this.asistenceRepository.saveAndFlush(asistence);
-            this.asistenceRepository.insert(listIdSudents.get(i).getId(),asistence.getId());
+            //this.asistenceRepository.insert(listIdSudents.get(i).getId(),asistence.getId());
         }
 
-        return new CustomResponse<>(qr,false,200,"Qr registrado coreectamente");
+        return new CustomResponse<>(qr,false,200,"Qr registrado correctamente");
     }
 
     @Transactional(rollbackFor = {SQLException.class})

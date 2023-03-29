@@ -1,5 +1,6 @@
 package mx.edu.utez.sicae.services;
 
+import mx.edu.utez.sicae.controllers.Asistence.dtos.AsistenceResponse;
 import mx.edu.utez.sicae.models.asistence.Asistence;
 import mx.edu.utez.sicae.models.asistence.AsistenceRepository;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
@@ -19,6 +20,10 @@ public class AsistenceService {
     @Transactional(readOnly = true)
     public CustomResponse<List<Asistence>>getAll(){
         return new CustomResponse<>(this.repository.findAll(),false,200,"Ok");
+    }
+    @Transactional(readOnly = true)
+    public CustomResponse<List<AsistenceResponse>>getById(Long id){
+        return new CustomResponse<>(this.repository.getByClas(),false,200,"OK");
     }
 
    @Transactional(rollbackFor = {SQLException.class})

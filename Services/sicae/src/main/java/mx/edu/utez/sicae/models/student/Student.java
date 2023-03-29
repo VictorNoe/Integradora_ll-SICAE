@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mx.edu.utez.sicae.models.asistence.Asistence;
 import mx.edu.utez.sicae.models.group.Group;
-
-import java.util.List;
 
 @Entity
 @Table(name = "students")
@@ -28,9 +25,9 @@ public class Student {
     @ManyToOne
     @JoinColumn(name = "group_id")
     private Group group;
-
+/*
     @OneToMany
     private List<Asistence> asistences;
-
+*/
 }
 

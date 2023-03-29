@@ -31,8 +31,7 @@ public class StudentDto {
                 getName(),
                 getLastname(),
                 getPassword(),
-                getGroup(),
-                null
+                getGroup()
         );
     }
 }

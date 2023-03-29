@@ -20,7 +20,7 @@ public class Asistence {
     private Long id;
     @Column(nullable = false)
     private String date;
-    private Boolean status;
+    private int status;
 
     /*@Column(nullable = false)
     private Boolean status;*/

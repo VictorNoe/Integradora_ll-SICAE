@@ -16,11 +16,10 @@ public class AsistenceDto {
     @NotEmpty(message = "Campo Obligatorio")
     private Long id;
     private String date;
-    private Boolean status;
-
+    private int status;
     public Asistence castToAsistence(){
         //return  new Asistence(getId(),getDate(),getStatus(), null,null);
-        return  new Asistence(getId(),getDate(),false, null,null);
+        return  new Asistence(getId(),getDate(),0, null,null);
     }
 
 }

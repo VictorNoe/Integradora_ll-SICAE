@@ -2,6 +2,7 @@ package mx.edu.utez.sicae.controllers.Asistence;
 
 import jakarta.validation.Valid;
 import mx.edu.utez.sicae.controllers.Asistence.dtos.AsistenceDto;
+import mx.edu.utez.sicae.controllers.Asistence.dtos.AsistenceResponse;
 import mx.edu.utez.sicae.models.asistence.Asistence;
 import mx.edu.utez.sicae.models.utils.CustomResponse;
 import mx.edu.utez.sicae.services.AsistenceService;
@@ -22,6 +23,10 @@ public class AsistenceController {
     @GetMapping("/")
     public ResponseEntity<CustomResponse<List<Asistence>>>getAll(){
         return new ResponseEntity<>(this.service.getAll(),HttpStatus.OK);
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<CustomResponse<List<AsistenceResponse>>>getByClas(@PathVariable("id")Long id){
+        return new ResponseEntity<>(this.service.getById(id),HttpStatus.OK);
     }
 
     @PostMapping("/")
