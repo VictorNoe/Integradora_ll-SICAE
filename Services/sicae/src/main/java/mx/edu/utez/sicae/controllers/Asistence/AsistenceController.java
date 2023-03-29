@@ -40,9 +40,9 @@ public class AsistenceController {
     }
     @PutMapping("/status")
     @ResponseBody
-    public ResponseEntity changeStatus(@Valid @RequestBody AsistenceDto pene){
-        System.out.println(pene.castToAsistence().getId());
-        this.service.changeStatus(pene.castToAsistence().getId(),pene.castToAsistence().getStatus());
+    public ResponseEntity changeStatus(@Valid @RequestBody AsistenceDto asistenceDto){
+        System.out.println(asistenceDto.castToAsistence().getId());
+        this.service.changeStatus(asistenceDto.castToAsistence().getId(),asistenceDto.castToAsistence().getStatus());
         return new ResponseEntity<>("",HttpStatus.CREATED);
     }
 
