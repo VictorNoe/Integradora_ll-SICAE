@@ -38,10 +38,12 @@ public class AsistenceController {
     public ResponseEntity<CustomResponse<Asistence>>update(@Valid @RequestBody AsistenceDto asistenceDto){
         return new ResponseEntity<>(this.service.update(asistenceDto.castToAsistence()),HttpStatus.CREATED);
     }
+    @PutMapping("/status")
+    @ResponseBody
+    public ResponseEntity changeStatus(@Valid @RequestBody AsistenceDto pene){
+        System.out.println(pene.castToAsistence().getId());
+        this.service.changeStatus(pene.castToAsistence().getId(),pene.castToAsistence().getStatus());
+        return new ResponseEntity<>("",HttpStatus.CREATED);
+    }
 
-   /* @PatchMapping("/")
-    public ResponseEntity<CustomResponse<Boolean>>
-    enableOrDisable(@RequestBody AsistenceDto asistenceDto){
-        return new ResponseEntity<>(this.service.chanceStatus(asistenceDto.castToAsistence(),HttpStatus.OK));
-    }*/
 }

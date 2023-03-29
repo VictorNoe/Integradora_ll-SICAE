@@ -23,11 +23,12 @@ public class AsistenceService {
     }
     @Transactional(readOnly = true)
     public CustomResponse<List<AsistenceResponse>>getById(Long id){
-        return new CustomResponse<>(this.repository.getByClas(),false,200,"OK");
+        return new CustomResponse<>(this.repository.getByClas(id),false,200,"OK");
     }
 
    @Transactional(rollbackFor = {SQLException.class})
     public CustomResponse<Asistence>insert(Asistence asistence){
+        asistence.setStatus(0);
         return  new CustomResponse<>(this.repository.saveAndFlush(asistence),false,200,"Aistencia registrada coreectamente");
    }
 
@@ -41,13 +42,10 @@ public class AsistenceService {
         );
     }
 
-   /* @Transactional(rollbackFor = {SQLException.class})
-    public CustomResponse<Boolean> changeStatus(Asistence asistence){
-        if(this.repository.existsById(asistence.getId()))
-            return new CustomResponse<>(null,true,400,"La subcategoria no existe");
-        return new CustomResponse<>(
-                this.repository.findById(asistence.getStatus(),asistence.getId()),false,200,"Asistencia actualizada correctamente"
-        );
-    }*/
+    @Transactional(rollbackFor = {SQLException.class})
+    public  void changeStatus(Long id, int status){
+        this.repository.changeStatus(id, status);
+    }
+
 
 }

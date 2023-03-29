@@ -19,7 +19,7 @@ public class AsistenceDto {
     private int status;
     public Asistence castToAsistence(){
         //return  new Asistence(getId(),getDate(),getStatus(), null,null);
-        return  new Asistence(getId(),getDate(),0, null,null);
+        return  new Asistence(getId(),getDate(),getStatus(), null,null);
     }
 
 }
