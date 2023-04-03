@@ -15,7 +15,7 @@ import mx.edu.utez.sicae.models.student.Student;
                 "from asistences a INNER JOIN students s \n" +
                 "INNER JOIN qrs q on q.id=a.qr_id \n" +
                 "INNER JOIN clases c on c.id=q.class_id \n" +
-                "WHERE c.id= :id",
+                "WHERE c.id= :id AND a.student_id=s.id AND q.id=a.qr_id AND c.id=q.class_id",
         //query = "SELECT * from asistences WHERE id= :id",
         resultSetMapping = "Mapping.AsistenceResponse")
 @SqlResultSetMapping(name="Mapping.AsistenceResponse",
